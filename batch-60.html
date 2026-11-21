@@ -1,0 +1,526 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+</head><body>
+<nav style="max-width:1160px;margin:12px auto 0;padding:0 16px;display:flex;gap:18px;font:500 14px system-ui,sans-serif"><a href="index.html">All batches</a><a href="batch-59.html">&larr; Batch 59</a><a href="batch-61.html">Batch 61 &rarr;</a></nav>
+<title>Batch 60</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Barlow+Semi+Condensed:wght@500;600;700&family=IBM+Plex+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap">
+<style>
+/* Layout: a working call sheet. Sticky toolbar, one section per batch, one row per lead with copy on the right. */
+:root {
+  --bg: #f4f6f5; --surface: #ffffff; --ink: #18211d; --ink-2: #4c5a53; --line: #d9e0dc;
+  --accent: #1d6b4e; --accent-ink: #ffffff; --accent-soft: #e2f0e9;
+  --ltl: #5b6b84; --ltl-soft: #e6eaf1; --warn: #8a5a00; --warn-soft: #fbf1dc; --star: #c28a00;
+  --st-new: #2e9e50; --st-active: #22d3ff; --st-inactive: #8b938f; --st-deleted: #d2443a; --st-customer: #39ff7a;
+  --display: "Barlow Semi Condensed", "Arial Narrow", system-ui, sans-serif;
+  --body: "IBM Plex Sans", system-ui, -apple-system, "Segoe UI", sans-serif;
+  --mono: "IBM Plex Mono", ui-monospace, SFMono-Regular, Menlo, monospace;
+}
+@media (prefers-color-scheme: dark) { :root:not([data-theme="light"]) {
+  --bg: #111614; --surface: #19201d; --ink: #e6ece9; --ink-2: #a3b1aa; --line: #2c3632;
+  --accent: #5cc49a; --accent-ink: #0d1a14; --accent-soft: #1d3329;
+  --ltl: #a9b6cc; --ltl-soft: #242c38; --warn: #f0c46a; --warn-soft: #33290f; --star: #f2c14e; --st-new: #3fb766; --st-active: #22d3ff; --st-inactive: #7d8682; --st-deleted: #e5584d; --st-customer: #39ff7a; color-scheme: dark; } }
+:root[data-theme="dark"] {
+  --bg: #111614; --surface: #19201d; --ink: #e6ece9; --ink-2: #a3b1aa; --line: #2c3632;
+  --accent: #5cc49a; --accent-ink: #0d1a14; --accent-soft: #1d3329;
+  --ltl: #a9b6cc; --ltl-soft: #242c38; --warn: #f0c46a; --warn-soft: #33290f; --star: #f2c14e; --st-new: #3fb766; --st-active: #22d3ff; --st-inactive: #7d8682; --st-deleted: #e5584d; --st-customer: #39ff7a; color-scheme: dark; }
+* { box-sizing: border-box; }
+body { background: var(--bg); color: var(--ink); font-family: var(--body); font-size: 15px; line-height: 1.5;
+  padding-left: max(16px, env(safe-area-inset-left, 0px)); padding-right: max(16px, env(safe-area-inset-right, 0px)); padding-block: 0 48px; }
+body::before { content: ""; position: fixed; inset: 0 0 auto; height: env(safe-area-inset-top, 0px); z-index: 10; background: var(--bg); }
+.wrap { max-width: 1120px; margin: 0 auto; }
+.top { padding-block: 28px 8px; display: grid; gap: 6px; }
+.top h1 { font-family: var(--display); font-weight: 700; font-size: clamp(28px, 4vw, 38px); letter-spacing: .01em; margin: 0; text-wrap: balance; }
+.top p { margin: 0; color: var(--ink-2); max-width: 70ch; }
+.bar { position: sticky; top: env(safe-area-inset-top, 0px); z-index: 5; background: var(--bg); padding-block: 12px; border-bottom: 1px solid var(--line);
+  display: flex; flex-wrap: wrap; gap: 10px 16px; align-items: center; }
+.bar input[type=search] { flex: 1 1 220px; min-width: 0; font: inherit; padding: 8px 12px; border: 1px solid var(--line); border-radius: 6px; background: var(--surface); color: var(--ink); }
+.bar input:focus-visible, button:focus-visible, a:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; }
+.seglbl { font: 600 11px var(--body); text-transform: uppercase; letter-spacing: .08em; color: var(--ink-2); }
+.jump { display: flex; gap: 6px; align-items: center; flex-wrap: wrap; }
+.jump a { font: 600 14px var(--display); color: var(--accent); text-decoration: none; padding: 3px 8px; border: 1px solid var(--line); border-radius: 4px; background: var(--surface); font-variant-numeric: tabular-nums; }
+.batch { padding-block: 28px 8px; scroll-margin-top: 80px; }
+.bhead { display: flex; flex-wrap: wrap; justify-content: space-between; align-items: end; gap: 10px 16px; border-bottom: 2px solid var(--ink); padding-bottom: 8px; }
+.btitle { display: grid; gap: 2px; min-width: 0; }
+.bnum { font: 600 12px var(--body); text-transform: uppercase; letter-spacing: .1em; color: var(--accent); }
+.bhead h2 { font-family: var(--display); font-weight: 600; font-size: 24px; margin: 0; line-height: 1.15; text-wrap: balance; }
+.bmeta { display: flex; flex-wrap: wrap; gap: 8px 12px; align-items: center; }
+.count { font-variant-numeric: tabular-nums; color: var(--ink-2); font-size: 14px; }
+.status { font: 600 11px var(--body); text-transform: uppercase; letter-spacing: .08em; padding: 3px 8px; border-radius: 99px; }
+.status.open { background: var(--warn-soft); color: var(--warn); }
+.status.done { background: var(--accent-soft); color: var(--accent); }
+.intro { color: var(--ink-2); max-width: 75ch; margin: 12px 0 6px; }
+.flag { background: var(--warn-soft); color: var(--ink); border-radius: 6px; padding: 8px 12px; margin: 8px 0 4px; font-size: 14px; max-width: 90ch; }
+.lbl { font: 600 11px var(--body); text-transform: uppercase; letter-spacing: .08em; color: var(--ink-2); margin-right: 4px; }
+.flag .lbl { color: var(--warn); }
+.leads { list-style: none; margin: 8px 0 0; padding: 0; display: grid; gap: 0; }
+.nameline { display: flex; align-items: center; gap: 10px; min-width: 0; }
+.nameline .name { min-width: 0; }
+.nameline button.copy { padding: 4px 10px; font-size: 12px; flex: none; }
+.addr, .phone { padding-left: 0; }
+.lead { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1.35fr) 200px; gap: 8px 24px; padding: 14px 4px; border-bottom: 1px solid var(--line); align-items: start; }
+.lead[hidden] { display: none !important; }
+.who, .what { min-width: 0; display: grid; gap: 3px; }
+.name { font-weight: 600; font-size: 16px; color: var(--ink); text-decoration: none; }
+.name:hover { color: var(--accent); text-decoration: underline; text-underline-offset: 3px; }
+.ext { font-size: 12px; color: var(--accent); margin-left: 4px; }
+.star { color: var(--star); margin-right: 5px; }
+.addr { font-family: var(--mono); font-size: 13px; color: var(--ink); }
+.phone { font-family: var(--mono); font-size: 13px; }
+.muted { color: var(--ink-2); font-family: var(--body); font-size: 13px; }
+.modes { display: flex; gap: 8px; align-items: center; flex-wrap: wrap; }
+.pill { font: 700 12px var(--display); letter-spacing: .06em; padding: 2px 8px; border-radius: 4px; }
+.pill.ftl { background: var(--accent); color: var(--accent-ink); }
+.pill.both { background: var(--accent-soft); color: var(--accent); }
+.pill.ltl { background: var(--ltl-soft); color: var(--ltl); }
+.pill.fleet { background: var(--warn-soft); color: var(--warn); text-decoration: none; }
+.pill.deal { background: var(--surface); color: var(--accent); border: 1px solid var(--accent); text-decoration: none; }
+.equip { font-size: 13px; color: var(--ink-2); }
+.commodity { margin: 0; }
+.near { margin: 0; font-size: 13px; color: var(--ink-2); }
+.near b { color: var(--ink); font-weight: 700; }
+.multi { display: inline-block; font: 700 11px var(--body); text-transform: uppercase; letter-spacing: .06em; padding: 2px 7px; border-radius: 4px; background: var(--warn-soft); color: var(--warn); margin-right: 4px; }
+button.copy, button.copy-batch { font: 600 13px var(--body); cursor: pointer; border-radius: 6px; padding: 8px 14px; border: 1px solid var(--accent); background: var(--surface); color: var(--accent); white-space: nowrap; }
+button.copy:hover, button.copy-batch:hover { background: var(--accent-soft); }
+button.copied { background: var(--accent) !important; color: var(--accent-ink) !important; }
+.empty { color: var(--ink-2); padding: 24px 4px; }
+.foot { color: var(--ink-2); font-size: 13px; margin-top: 32px; }
+.toast { position: fixed; left: 50%; transform: translateX(-50%); bottom: calc(16px + env(safe-area-inset-bottom, 0px)); background: var(--ink); color: var(--bg); padding: 8px 14px; border-radius: 6px; font-size: 14px; z-index: 20; }
+@media (max-width: 720px) {
+  .lead { grid-template-columns: minmax(0, 1fr); }
+  .tags { max-width: 240px; }
+}
+.sr { position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap; }
+.tags { order: 3; border: 0; margin: 0; padding: 0; min-width: 0; display: grid; grid-template-columns: 1fr 1fr; gap: 6px 8px; align-self: start; }
+.tg { display: flex; align-items: center; gap: 6px; font-size: 13px; color: var(--ink-2); cursor: pointer; user-select: none; }
+.tg input { appearance: none; -webkit-appearance: none; margin: 0; width: 18px; height: 18px; flex: none; border: 1.5px solid var(--ink-2); border-radius: 4px; background: var(--surface); cursor: pointer; display: grid; place-content: center; }
+.tg input::after { content: ""; width: 5px; height: 9px; border: solid var(--chk, #fff); border-width: 0 2px 2px 0; transform: translateY(-1px) rotate(45deg); opacity: 0; }
+.tg input:checked::after { opacity: 1; }
+.tg input:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; }
+.tg.new { --c: var(--st-new); } .tg.active { --c: var(--st-active); --chk: #0b2a3c; } .tg.inactive { --c: var(--st-inactive); } .tg.deleted { --c: var(--st-deleted); } .tg.customer { --c: var(--st-customer); --chk: #0f3a1c; } .tg.na { --c: #000; --chk: #fff; } .tg.na input:checked { border-color: var(--ink-2); }
+.tg input:checked { background: var(--c); border-color: var(--c); }
+.tally { display: flex; flex-wrap: wrap; gap: 6px 14px; align-items: center; font-size: 13px; color: var(--ink-2); margin-top: 10px; }
+.tc { display: inline-flex; align-items: center; gap: 5px; white-space: nowrap; }
+.tc b { color: var(--ink); font-variant-numeric: tabular-nums; }
+.tc i { width: 10px; height: 10px; border-radius: 3px; background: var(--c); }
+.tc.new { --c: var(--st-new); } .tc.active { --c: var(--st-active); } .tc.inactive { --c: var(--st-inactive); } .tc.deleted { --c: var(--st-deleted); } .tc.customer { --c: var(--st-customer); } .tc.na { --c: #000; } .tc.na i { box-shadow: 0 0 0 1px var(--ink-2); }
+.allbox { margin-top: 10px; padding: 10px 14px; background: var(--surface); border: 1px solid var(--line); border-radius: 8px; }
+.allbox .tally { margin-top: 4px; font-size: 14px; }
+.bulk { display: flex; flex-wrap: wrap; gap: 8px 10px; align-items: center; margin-top: 10px; }
+.bulk button { padding: 6px 12px; }
+.bulk button:disabled { opacity: .45; cursor: not-allowed; }
+.bulk button:disabled:hover { background: var(--surface); }
+.bulkhint { font-size: 12px; color: var(--ink-2); }
+.sync { margin: 6px 0 0; font-size: 12px; color: var(--ink-2); }
+@media (prefers-reduced-motion: reduce) { * { transition: none !important; } }
+</style>
+
+<div class="wrap">
+  <header class="top">
+    <h1>Batch 60</h1>
+    <p>13 FTL-leaning leads in Batch 60. Click a company name to search it with its address in a new tab. Copy puts company, phone, address and commodity in four side-by-side cells, ready to paste into Excel as plain text, with the company name as a clickable link to the same Google search.</p>
+    <div class="allbox"><span class="seglbl">Batches 60 to 60 totals</span><div class="tally" id="tally-all"><span class="tc new"><i aria-hidden="true"></i>New <b data-k="new">0</b></span><span class="tc inactive"><i aria-hidden="true"></i>Inactive <b data-k="inactive">0</b></span><span class="tc deleted"><i aria-hidden="true"></i>Deleted <b data-k="deleted">0</b></span><span class="tc active"><i aria-hidden="true"></i>Active <b data-k="active">0</b></span><span class="tc customer"><i aria-hidden="true"></i>Customer <b data-k="customer">0</b></span><span class="tc na"><i aria-hidden="true"></i>FT/OOB/other <b data-k="na">0</b></span><span class="tc none">Unmarked <b data-k="none">0</b></span></div>
+      <div class="bulk">
+        <button type="button" class="copy-batch" id="copy-customer" data-kind="customer" disabled>Copy all customers</button>
+        <button type="button" class="copy-batch" id="copy-deleted" data-kind="deleted" disabled>Copy all deleted</button>
+        <span class="bulkhint" id="bulkhint"></span>
+      </div>
+      <p class="sync" id="sync"></p></div>
+  </header>
+
+  <div class="bar">
+    <input type="search" id="q" placeholder="Filter by company, city, state or commodity" aria-label="Filter leads">
+    <nav class="jump" aria-label="Jump to batch"><span class="seglbl">Batch</span><a href="#batch-60">60</a></nav>
+  </div>
+
+  
+  <section class="batch" id="batch-60">
+    <header class="bhead">
+      <div class="btitle">
+        <span class="bnum">Batch 60</span>
+        <h2>engineered-to-order power and grid equipment with announced deals</h2>
+      </div>
+      <div class="bmeta">
+        <span class="status open">Open</span>
+        <span class="count">13 leads</span>
+        <button type="button" class="copy-batch" id="copybatch-60" data-batch="60">Copy batch</button>
+      </div>
+    </header>
+    <div class="tally" aria-label="Batch 60 status totals"><span class="tc new"><i aria-hidden="true"></i>New <b data-k="new">0</b></span><span class="tc inactive"><i aria-hidden="true"></i>Inactive <b data-k="inactive">0</b></span><span class="tc deleted"><i aria-hidden="true"></i>Deleted <b data-k="deleted">0</b></span><span class="tc active"><i aria-hidden="true"></i>Active <b data-k="active">0</b></span><span class="tc customer"><i aria-hidden="true"></i>Customer <b data-k="customer">0</b></span><span class="tc na"><i aria-hidden="true"></i>FT/OOB/other <b data-k="na">0</b></span><span class="tc none">Unmarked <b data-k="none">0</b></span></div>
+    <p class="intro">Makers of engineered-to-order power and grid equipment that have publicly announced a contract or partnership tied to a data center or grid project. Each row carries an Announced deal tag that links the announcement. Large makers are listed once, at the U.S. head office. Most of this freight moves as heavy haul or oversize flatbed, and several makers import units through Gulf and East Coast ports. None were in earlier files as leads. Each company name links to a Google search of the name and address.</p>
+    <p class="flag"><span class="lbl">Load notes</span> Several announcements name the data center company or developer but not the exact site (Crusoe for GE Vernova and ProEnergy, Frontier Infrastructure for Baker Hughes, VoltaGrid for INNIO, Applied Digital for B&amp;W, Compass for Schneider), and Wärtsilä&#x27;s Ohio order and HD Hyundai&#x27;s 765 kV order do not name the customer; each tag links the exact wording. GE Vernova, Bloom, ABB, Form Energy and HD Hyundai show only a street address in the sources found. Bloom&#x27;s headquarters and one plant are in California; its Newark, DE plant serves the East. Form Energy and Rolls-Royce are listed at the head office, but their freight starts at the Weirton, WV and Mankato, MN plants. Large makers such as GE Vernova, ABB, Hitachi Energy, Schneider and Baker Hughes usually book heavy-haul and oversize moves through central project logistics teams. Rolls-Royce&#x27;s address comes from a partly summarized page, so confirm it. HD Hyundai Power Transformers and Hitachi Energy are separate businesses from HD Hyundai Construction Equipment, Hitachi Construction Machinery and Hitachi Global Air Power in batches 57 and 58, with their own freight.</p>
+    <ul class="leads">
+      <li class="lead" data-lead="{&quot;n&quot;: &quot;W\u00e4rtsil\u00e4 North America&quot;, &quot;p&quot;: &quot;(281) 233-6200&quot;, &quot;a&quot;: &quot;11710 N. Gessner Rd., Suite A, Houston, TX 77064&quot;, &quot;c&quot;: &quot;FTL (heavy haul, oversize): imported gas engines and generator modules for on-site data center power plants; fifteen 18V50SG engines (282 MW) for a new Ohio data center project, delivering late 2026 into 2027 (customer not named)&quot;, &quot;u&quot;: &quot;https://www.google.com/search?q=W%C3%A4rtsil%C3%A4+North+America+11710+N.+Gessner+Rd.%2C+Suite+A%2C+Houston%2C+TX+77064&quot;}" data-search="wärtsilä north america 11710 n. gessner rd., suite a, houston, tx 77064 ftl (heavy haul, oversize): imported gas engines and generator modules for on-site data center power plants; fifteen 18v50sg engines (282 mw) for a new ohio data center project, delivering late 2026 into 2027 (customer not named)" data-mode="ftl">
+        <fieldset class="tags" data-key="b60-w-rtsil-north-america"><legend class="sr">Status of Wärtsilä North America</legend><label class="tg new"><input type="checkbox" value="new"><span>New</span></label><label class="tg active"><input type="checkbox" value="active"><span>Active</span></label><label class="tg inactive"><input type="checkbox" value="inactive"><span>Inactive</span></label><label class="tg deleted"><input type="checkbox" value="deleted"><span>Deleted</span></label><label class="tg customer"><input type="checkbox" value="customer"><span>Customer</span></label><label class="tg na"><input type="checkbox" value="na"><span>FT/OOB/other</span></label></fieldset>
+        <div class="who">
+          <div class="nameline">
+            <button type="button" class="copy" id="copy-b60-0" aria-label="Copy Wärtsilä North America">Copy</button>
+            <a class="name" href="https://www.google.com/search?q=W%C3%A4rtsil%C3%A4+North+America+11710+N.+Gessner+Rd.%2C+Suite+A%2C+Houston%2C+TX+77064" target="_blank" rel="noopener">Wärtsilä North America<span class="ext" aria-hidden="true">↗</span></a>
+          </div>
+          <div class="addr">11710 N. Gessner Rd., Suite A, Houston, TX 77064</div>
+          <div class="phone">(281) 233-6200</div>
+        </div>
+        <div class="what">
+          <div class="modes"><span class="pill ftl">FTL</span><span class="equip">heavy haul, oversize</span><a class="pill deal" href="https://www.publicpower.org/periodical/article/wartsila-supply-282-mw-flexible-engines-ohio-data-center-project" target="_blank" rel="noopener" title="Public announcement of a data center or grid project deal">Announced deal ↗</a></div>
+          <p class="commodity">imported gas engines and generator modules for on-site data center power plants; fifteen 18V50SG engines (282 MW) for a new Ohio data center project, delivering late 2026 into 2027 (customer not named)</p>
+          <p class="near"><span class="lbl">Within 100 mi</span> Arbok (Owner listed as an individual, Rockdale, TX) <b>~100 mi</b></p>
+        </div>
+      </li>
+      <li class="lead" data-lead="{&quot;n&quot;: &quot;Babcock &amp; Wilcox&quot;, &quot;p&quot;: &quot;(330) 753-4511&quot;, &quot;a&quot;: &quot;1200 E. Market St., Suite 650, Akron, OH 44305&quot;, &quot;c&quot;: &quot;FTL (heavy haul, oversize): engineered boilers, steam generation and power plant equipment; signed a limited notice to proceed with Applied Digital (Nov 2025) to design and install 1 GW of power for AI data centers&quot;, &quot;u&quot;: &quot;https://www.google.com/search?q=Babcock+%26+Wilcox+1200+E.+Market+St.%2C+Suite+650%2C+Akron%2C+OH+44305&quot;}" data-search="babcock &amp; wilcox 1200 e. market st., suite 650, akron, oh 44305 ftl (heavy haul, oversize): engineered boilers, steam generation and power plant equipment; signed a limited notice to proceed with applied digital (nov 2025) to design and install 1 gw of power for ai data centers" data-mode="ftl">
+        <fieldset class="tags" data-key="b60-babcock-wilcox"><legend class="sr">Status of Babcock &amp; Wilcox</legend><label class="tg new"><input type="checkbox" value="new"><span>New</span></label><label class="tg active"><input type="checkbox" value="active"><span>Active</span></label><label class="tg inactive"><input type="checkbox" value="inactive"><span>Inactive</span></label><label class="tg deleted"><input type="checkbox" value="deleted"><span>Deleted</span></label><label class="tg customer"><input type="checkbox" value="customer"><span>Customer</span></label><label class="tg na"><input type="checkbox" value="na"><span>FT/OOB/other</span></label></fieldset>
+        <div class="who">
+          <div class="nameline">
+            <button type="button" class="copy" id="copy-b60-1" aria-label="Copy Babcock &amp; Wilcox">Copy</button>
+            <a class="name" href="https://www.google.com/search?q=Babcock+%26+Wilcox+1200+E.+Market+St.%2C+Suite+650%2C+Akron%2C+OH+44305" target="_blank" rel="noopener">Babcock &amp; Wilcox<span class="ext" aria-hidden="true">↗</span></a>
+          </div>
+          <div class="addr">1200 E. Market St., Suite 650, Akron, OH 44305</div>
+          <div class="phone">(330) 753-4511</div>
+        </div>
+        <div class="what">
+          <div class="modes"><span class="pill ftl">FTL</span><span class="equip">heavy haul, oversize</span><a class="pill deal" href="https://www.businesswire.com/news/home/20251104813656/en/Babcock-Wilcox-Announces-AI-Data-Center-Power-Generation-Solution-and-Signs-LNTP-with-Applied-Digital-to-Design-and-Install-One-Gigawatt-of-Electric-Power" target="_blank" rel="noopener" title="Public announcement of a data center or grid project deal">Announced deal ↗</a></div>
+          <p class="commodity">engineered boilers, steam generation and power plant equipment; signed a limited notice to proceed with Applied Digital (Nov 2025) to design and install 1 GW of power for AI data centers</p>
+          <p class="near"><span class="multi">3 projects within 100 mi</span> Project Phoenix (PIT-01) (Aligned, Shippingport, PA) <b>~60 mi</b>; COL-1 (CyrusOne, Johnstown / New Albany, OH) <b>~90 mi</b>; New Albany OH1 campus (Vantage Data Centers, New Albany, OH) <b>~90 mi</b></p>
+        </div>
+      </li>
+      <li class="lead" data-lead="{&quot;n&quot;: &quot;Baker Hughes&quot;, &quot;p&quot;: &quot;(713) 439-8600&quot;, &quot;a&quot;: &quot;575 N. Dairy Ashford Rd., Suite 100, Houston, TX 77079&quot;, &quot;c&quot;: &quot;FTL (heavy haul, oversize): imported NovaLT gas turbines, gears and generators for behind-the-meter data center power; 16 NovaLT turbines (up to 270 MW) ordered by Frontier Infrastructure for its data center projects in Wyoming and Texas (May 2025)&quot;, &quot;u&quot;: &quot;https://www.google.com/search?q=Baker+Hughes+575+N.+Dairy+Ashford+Rd.%2C+Suite+100%2C+Houston%2C+TX+77079&quot;}" data-search="baker hughes 575 n. dairy ashford rd., suite 100, houston, tx 77079 ftl (heavy haul, oversize): imported novalt gas turbines, gears and generators for behind-the-meter data center power; 16 novalt turbines (up to 270 mw) ordered by frontier infrastructure for its data center projects in wyoming and texas (may 2025)" data-mode="ftl">
+        <fieldset class="tags" data-key="b60-baker-hughes"><legend class="sr">Status of Baker Hughes</legend><label class="tg new"><input type="checkbox" value="new"><span>New</span></label><label class="tg active"><input type="checkbox" value="active"><span>Active</span></label><label class="tg inactive"><input type="checkbox" value="inactive"><span>Inactive</span></label><label class="tg deleted"><input type="checkbox" value="deleted"><span>Deleted</span></label><label class="tg customer"><input type="checkbox" value="customer"><span>Customer</span></label><label class="tg na"><input type="checkbox" value="na"><span>FT/OOB/other</span></label></fieldset>
+        <div class="who">
+          <div class="nameline">
+            <button type="button" class="copy" id="copy-b60-2" aria-label="Copy Baker Hughes">Copy</button>
+            <a class="name" href="https://www.google.com/search?q=Baker+Hughes+575+N.+Dairy+Ashford+Rd.%2C+Suite+100%2C+Houston%2C+TX+77079" target="_blank" rel="noopener">Baker Hughes<span class="ext" aria-hidden="true">↗</span></a>
+          </div>
+          <div class="addr">575 N. Dairy Ashford Rd., Suite 100, Houston, TX 77079</div>
+          <div class="phone">(713) 439-8600</div>
+        </div>
+        <div class="what">
+          <div class="modes"><span class="pill ftl">FTL</span><span class="equip">heavy haul, oversize</span><a class="pill deal" href="https://investors.bakerhughes.com/news-releases/news-release-details/baker-hughes-supply-novalttm-gas-turbines-frontier" target="_blank" rel="noopener" title="Public announcement of a data center or grid project deal">Announced deal ↗</a></div>
+          <p class="commodity">imported NovaLT gas turbines, gears and generators for behind-the-meter data center power; 16 NovaLT turbines (up to 270 MW) ordered by Frontier Infrastructure for its data center projects in Wyoming and Texas (May 2025)</p>
+          <p class="near"><span class="lbl">Nearest</span> Arbok (Owner listed as an individual, Rockdale, TX) <b>~100 mi</b>; Texas 765 kV backbone, southern leg <b>~190 mi</b></p>
+        </div>
+      </li>
+      <li class="lead" data-lead="{&quot;n&quot;: &quot;ProEnergy&quot;, &quot;p&quot;: &quot;(660) 829-5100&quot;, &quot;a&quot;: &quot;2001 ProEnergy Blvd., Sedalia, MO 65301&quot;, &quot;c&quot;: &quot;FTL (heavy haul, oversize): PE6000 aeroderivative gas turbine generator sets and power plant packages; 13 units (650 MW) for Crusoe&#x27;s upcoming hyperscale data center projects, delivering by summer 2027 (Apr 2026)&quot;, &quot;u&quot;: &quot;https://www.google.com/search?q=ProEnergy+2001+ProEnergy+Blvd.%2C+Sedalia%2C+MO+65301&quot;}" data-search="proenergy 2001 proenergy blvd., sedalia, mo 65301 ftl (heavy haul, oversize): pe6000 aeroderivative gas turbine generator sets and power plant packages; 13 units (650 mw) for crusoe&#x27;s upcoming hyperscale data center projects, delivering by summer 2027 (apr 2026)" data-mode="ftl">
+        <fieldset class="tags" data-key="b60-proenergy"><legend class="sr">Status of ProEnergy</legend><label class="tg new"><input type="checkbox" value="new"><span>New</span></label><label class="tg active"><input type="checkbox" value="active"><span>Active</span></label><label class="tg inactive"><input type="checkbox" value="inactive"><span>Inactive</span></label><label class="tg deleted"><input type="checkbox" value="deleted"><span>Deleted</span></label><label class="tg customer"><input type="checkbox" value="customer"><span>Customer</span></label><label class="tg na"><input type="checkbox" value="na"><span>FT/OOB/other</span></label></fieldset>
+        <div class="who">
+          <div class="nameline">
+            <button type="button" class="copy" id="copy-b60-3" aria-label="Copy ProEnergy">Copy</button>
+            <a class="name" href="https://www.google.com/search?q=ProEnergy+2001+ProEnergy+Blvd.%2C+Sedalia%2C+MO+65301" target="_blank" rel="noopener">ProEnergy<span class="ext" aria-hidden="true">↗</span></a>
+          </div>
+          <div class="addr">2001 ProEnergy Blvd., Sedalia, MO 65301</div>
+          <div class="phone">(660) 829-5100</div>
+        </div>
+        <div class="what">
+          <div class="modes"><span class="pill ftl">FTL</span><span class="equip">heavy haul, oversize</span><a class="pill deal" href="https://www.prnewswire.com/news-releases/proenergy-to-deliver-major-generating-equipment-to-power-crusoe-ai-factories-302743533.html" target="_blank" rel="noopener" title="Public announcement of a data center or grid project deal">Announced deal ↗</a></div>
+          <p class="commodity">PE6000 aeroderivative gas turbine generator sets and power plant packages; 13 units (650 MW) for Crusoe&#x27;s upcoming hyperscale data center projects, delivering by summer 2027 (Apr 2026)</p>
+          <p class="near"><span class="multi">2 projects within 100 mi</span> Grain Belt Express (HVDC) <b>~40 mi</b>; Independence AI campus (Nebius, Independence, MO) <b>~70 mi</b></p>
+        </div>
+      </li>
+      <li class="lead" data-lead="{&quot;n&quot;: &quot;Rolls-Royce Solutions America (mtu)&quot;, &quot;p&quot;: &quot;(248) 560-8000&quot;, &quot;a&quot;: &quot;39525 Mackenzie Dr., Suite 100, Novi, MI 48377&quot;, &quot;c&quot;: &quot;FTL (heavy haul, oversize): mtu diesel backup generator sets built at its Mankato, MN plant (100 Power Dr.); emergency backup power for a co-location data center in Colorado (June 2024)&quot;, &quot;u&quot;: &quot;https://www.google.com/search?q=Rolls-Royce+Solutions+America+%28mtu%29+39525+Mackenzie+Dr.%2C+Suite+100%2C+Novi%2C+MI+48377&quot;}" data-search="rolls-royce solutions america (mtu) 39525 mackenzie dr., suite 100, novi, mi 48377 ftl (heavy haul, oversize): mtu diesel backup generator sets built at its mankato, mn plant (100 power dr.); emergency backup power for a co-location data center in colorado (june 2024)" data-mode="ftl">
+        <fieldset class="tags" data-key="b60-rolls-royce-solutions-america-mtu"><legend class="sr">Status of Rolls-Royce Solutions America (mtu)</legend><label class="tg new"><input type="checkbox" value="new"><span>New</span></label><label class="tg active"><input type="checkbox" value="active"><span>Active</span></label><label class="tg inactive"><input type="checkbox" value="inactive"><span>Inactive</span></label><label class="tg deleted"><input type="checkbox" value="deleted"><span>Deleted</span></label><label class="tg customer"><input type="checkbox" value="customer"><span>Customer</span></label><label class="tg na"><input type="checkbox" value="na"><span>FT/OOB/other</span></label></fieldset>
+        <div class="who">
+          <div class="nameline">
+            <button type="button" class="copy" id="copy-b60-4" aria-label="Copy Rolls-Royce Solutions America (mtu)">Copy</button>
+            <a class="name" href="https://www.google.com/search?q=Rolls-Royce+Solutions+America+%28mtu%29+39525+Mackenzie+Dr.%2C+Suite+100%2C+Novi%2C+MI+48377" target="_blank" rel="noopener">Rolls-Royce Solutions America (mtu)<span class="ext" aria-hidden="true">↗</span></a>
+          </div>
+          <div class="addr">39525 Mackenzie Dr., Suite 100, Novi, MI 48377</div>
+          <div class="phone">(248) 560-8000</div>
+        </div>
+        <div class="what">
+          <div class="modes"><span class="pill ftl">FTL</span><span class="equip">heavy haul, oversize</span><a class="pill deal" href="https://www.rolls-royce.com/media/press-releases/2024/06-06-2024-rr-secures-emergency-backup-power-for-co-location-data-centre-in-colorado.aspx" target="_blank" rel="noopener" title="Public announcement of a data center or grid project deal">Announced deal ↗</a></div>
+          <p class="commodity">mtu diesel backup generator sets built at its Mankato, MN plant (100 Power Dr.); emergency backup power for a co-location data center in Colorado (June 2024)</p>
+          <p class="near"><span class="lbl">Within 100 mi</span> Stargate Michigan (Related Digital for Oracle/OpenAI, Saline Twp., MI) <b>~30 mi</b></p>
+        </div>
+      </li>
+      <li class="lead" data-lead="{&quot;n&quot;: &quot;INNIO (Waukesha and Jenbacher engines)&quot;, &quot;p&quot;: &quot;(262) 547-3311&quot;, &quot;a&quot;: &quot;1101 W. St. Paul Ave., Waukesha, WI 53188&quot;, &quot;c&quot;: &quot;FTL (heavy haul, oversize): Jenbacher and Waukesha gas engines and generator sets; 2.3 GW of Jenbacher-based power packs for VoltaGrid&#x27;s data center power deal, which serves Oracle (Oct 2025)&quot;, &quot;u&quot;: &quot;https://www.google.com/search?q=INNIO+%28Waukesha+and+Jenbacher+engines%29+1101+W.+St.+Paul+Ave.%2C+Waukesha%2C+WI+53188&quot;}" data-search="innio (waukesha and jenbacher engines) 1101 w. st. paul ave., waukesha, wi 53188 ftl (heavy haul, oversize): jenbacher and waukesha gas engines and generator sets; 2.3 gw of jenbacher-based power packs for voltagrid&#x27;s data center power deal, which serves oracle (oct 2025)" data-mode="ftl">
+        <fieldset class="tags" data-key="b60-innio-waukesha-and-jenbacher-engines"><legend class="sr">Status of INNIO (Waukesha and Jenbacher engines)</legend><label class="tg new"><input type="checkbox" value="new"><span>New</span></label><label class="tg active"><input type="checkbox" value="active"><span>Active</span></label><label class="tg inactive"><input type="checkbox" value="inactive"><span>Inactive</span></label><label class="tg deleted"><input type="checkbox" value="deleted"><span>Deleted</span></label><label class="tg customer"><input type="checkbox" value="customer"><span>Customer</span></label><label class="tg na"><input type="checkbox" value="na"><span>FT/OOB/other</span></label></fieldset>
+        <div class="who">
+          <div class="nameline">
+            <button type="button" class="copy" id="copy-b60-5" aria-label="Copy INNIO (Waukesha and Jenbacher engines)">Copy</button>
+            <a class="name" href="https://www.google.com/search?q=INNIO+%28Waukesha+and+Jenbacher+engines%29+1101+W.+St.+Paul+Ave.%2C+Waukesha%2C+WI+53188" target="_blank" rel="noopener">INNIO (Waukesha and Jenbacher engines)<span class="ext" aria-hidden="true">↗</span></a>
+          </div>
+          <div class="addr">1101 W. St. Paul Ave., Waukesha, WI 53188</div>
+          <div class="phone">(262) 547-3311</div>
+        </div>
+        <div class="what">
+          <div class="modes"><span class="pill ftl">FTL</span><span class="equip">heavy haul, oversize</span><a class="pill deal" href="https://www.powermag.com/innio-voltagrid-partner-on-2-3-gw-data-center-project/" target="_blank" rel="noopener" title="Public announcement of a data center or grid project deal">Announced deal ↗</a></div>
+          <p class="commodity">Jenbacher and Waukesha gas engines and generator sets; 2.3 GW of Jenbacher-based power packs for VoltaGrid&#x27;s data center power deal, which serves Oracle (Oct 2025)</p>
+          <p class="near"><span class="lbl">Within 100 mi</span> Lighthouse (Stargate WI) (Vantage for Oracle/OpenAI, Port Washington, WI) <b>~30 mi</b></p>
+        </div>
+      </li>
+      <li class="lead" data-lead="{&quot;n&quot;: &quot;Hitachi Energy USA&quot;, &quot;p&quot;: &quot;(800) 290-5290&quot;, &quot;a&quot;: &quot;901 Main Campus Dr., Raleigh, NC 27606&quot;, &quot;c&quot;: &quot;FTL (heavy haul, oversize): large power transformers, HVDC converter equipment, high-voltage breakers and grid systems; HVDC converter stations for the SunZia transmission project, Arizona and New Mexico (May 2023)&quot;, &quot;u&quot;: &quot;https://www.google.com/search?q=Hitachi+Energy+USA+901+Main+Campus+Dr.%2C+Raleigh%2C+NC+27606&quot;}" data-search="hitachi energy usa 901 main campus dr., raleigh, nc 27606 ftl (heavy haul, oversize): large power transformers, hvdc converter equipment, high-voltage breakers and grid systems; hvdc converter stations for the sunzia transmission project, arizona and new mexico (may 2023)" data-mode="ftl">
+        <fieldset class="tags" data-key="b60-hitachi-energy-usa"><legend class="sr">Status of Hitachi Energy USA</legend><label class="tg new"><input type="checkbox" value="new"><span>New</span></label><label class="tg active"><input type="checkbox" value="active"><span>Active</span></label><label class="tg inactive"><input type="checkbox" value="inactive"><span>Inactive</span></label><label class="tg deleted"><input type="checkbox" value="deleted"><span>Deleted</span></label><label class="tg customer"><input type="checkbox" value="customer"><span>Customer</span></label><label class="tg na"><input type="checkbox" value="na"><span>FT/OOB/other</span></label></fieldset>
+        <div class="who">
+          <div class="nameline">
+            <button type="button" class="copy" id="copy-b60-6" aria-label="Copy Hitachi Energy USA">Copy</button>
+            <a class="name" href="https://www.google.com/search?q=Hitachi+Energy+USA+901+Main+Campus+Dr.%2C+Raleigh%2C+NC+27606" target="_blank" rel="noopener">Hitachi Energy USA<span class="ext" aria-hidden="true">↗</span></a>
+          </div>
+          <div class="addr">901 Main Campus Dr., Raleigh, NC 27606</div>
+          <div class="phone">(800) 290-5290</div>
+        </div>
+        <div class="what">
+          <div class="modes"><span class="pill ftl">FTL</span><span class="equip">heavy haul, oversize</span><a class="pill deal" href="https://www.hitachienergy.com/news/press-releases/2023/05/hitachi-energy-the-partner-of-choice-for-largest-ever-hvdc-wind-energy-project-in-u-s" target="_blank" rel="noopener" title="Public announcement of a data center or grid project deal">Announced deal ↗</a></div>
+          <p class="commodity">large power transformers, HVDC converter equipment, high-voltage breakers and grid systems; HVDC converter stations for the SunZia transmission project, Arizona and New Mexico (May 2023)</p>
+          <p class="near"><span class="lbl">Nearest</span> RCH-1 (Iron Mountain, Richmond, VA) <b>~140 mi</b>; PJM 765 kV (Valley Link and related) <b>~230 mi</b></p>
+        </div>
+      </li>
+      <li class="lead" data-lead="{&quot;n&quot;: &quot;Schneider Electric North America&quot;, &quot;p&quot;: &quot;(978) 794-0800&quot;, &quot;a&quot;: &quot;800 Federal St., Andover, MA 01810&quot;, &quot;c&quot;: &quot;FTL (flatbed, oversize): prefabricated modular power rooms and data center electrical equipment built in Red Oak, TX and West Chester, OH; $3 billion multi-year supply agreement with Compass Datacenters (Nov 2023)&quot;, &quot;u&quot;: &quot;https://www.google.com/search?q=Schneider+Electric+North+America+800+Federal+St.%2C+Andover%2C+MA+01810&quot;}" data-search="schneider electric north america 800 federal st., andover, ma 01810 ftl (flatbed, oversize): prefabricated modular power rooms and data center electrical equipment built in red oak, tx and west chester, oh; $3 billion multi-year supply agreement with compass datacenters (nov 2023)" data-mode="ftl">
+        <fieldset class="tags" data-key="b60-schneider-electric-north-america"><legend class="sr">Status of Schneider Electric North America</legend><label class="tg new"><input type="checkbox" value="new"><span>New</span></label><label class="tg active"><input type="checkbox" value="active"><span>Active</span></label><label class="tg inactive"><input type="checkbox" value="inactive"><span>Inactive</span></label><label class="tg deleted"><input type="checkbox" value="deleted"><span>Deleted</span></label><label class="tg customer"><input type="checkbox" value="customer"><span>Customer</span></label><label class="tg na"><input type="checkbox" value="na"><span>FT/OOB/other</span></label></fieldset>
+        <div class="who">
+          <div class="nameline">
+            <button type="button" class="copy" id="copy-b60-7" aria-label="Copy Schneider Electric North America">Copy</button>
+            <a class="name" href="https://www.google.com/search?q=Schneider+Electric+North+America+800+Federal+St.%2C+Andover%2C+MA+01810" target="_blank" rel="noopener">Schneider Electric North America<span class="ext" aria-hidden="true">↗</span></a>
+          </div>
+          <div class="addr">800 Federal St., Andover, MA 01810</div>
+          <div class="phone">(978) 794-0800</div>
+        </div>
+        <div class="what">
+          <div class="modes"><span class="pill ftl">FTL</span><span class="equip">flatbed, oversize</span><a class="pill deal" href="https://www.se.com/us/en/about-us/newsroom/news/press-releases/schneider-electric-and-compass-datacenters-expand-partnership-with-3-billion-multi-year-data-center-technology-agreement-654c72aea7ee7277290da24e" target="_blank" rel="noopener" title="Public announcement of a data center or grid project deal">Announced deal ↗</a></div>
+          <p class="commodity">prefabricated modular power rooms and data center electrical equipment built in Red Oak, TX and West Chester, OH; $3 billion multi-year supply agreement with Compass Datacenters (Nov 2023)</p>
+          <p class="near"><span class="lbl">Nearest</span> VA1 (CleanArc, Caroline Co., VA) <b>~460 mi</b>; Champlain Hudson Power Express (HVDC) <b>~130 mi</b></p>
+        </div>
+      </li>
+      <li class="lead" data-lead="{&quot;n&quot;: &quot;GE Vernova&quot;, &quot;p&quot;: &quot;&quot;, &quot;a&quot;: &quot;58 Charles St., Cambridge, MA 02141&quot;, &quot;c&quot;: &quot;FTL (heavy haul, oversize): gas turbines, aeroderivative turbine packages, generators and grid equipment; 29 LM2500XPRESS aeroderivative units (about 1 GW) for Crusoe AI data centers, announced July 2025 and since delivered&quot;, &quot;u&quot;: &quot;https://www.google.com/search?q=GE+Vernova+58+Charles+St.%2C+Cambridge%2C+MA+02141&quot;}" data-search="ge vernova 58 charles st., cambridge, ma 02141 ftl (heavy haul, oversize): gas turbines, aeroderivative turbine packages, generators and grid equipment; 29 lm2500xpress aeroderivative units (about 1 gw) for crusoe ai data centers, announced july 2025 and since delivered" data-mode="ftl">
+        <fieldset class="tags" data-key="b60-ge-vernova"><legend class="sr">Status of GE Vernova</legend><label class="tg new"><input type="checkbox" value="new"><span>New</span></label><label class="tg active"><input type="checkbox" value="active"><span>Active</span></label><label class="tg inactive"><input type="checkbox" value="inactive"><span>Inactive</span></label><label class="tg deleted"><input type="checkbox" value="deleted"><span>Deleted</span></label><label class="tg customer"><input type="checkbox" value="customer"><span>Customer</span></label><label class="tg na"><input type="checkbox" value="na"><span>FT/OOB/other</span></label></fieldset>
+        <div class="who">
+          <div class="nameline">
+            <button type="button" class="copy" id="copy-b60-8" aria-label="Copy GE Vernova">Copy</button>
+            <a class="name" href="https://www.google.com/search?q=GE+Vernova+58+Charles+St.%2C+Cambridge%2C+MA+02141" target="_blank" rel="noopener">GE Vernova<span class="ext" aria-hidden="true">↗</span></a>
+          </div>
+          <div class="addr">58 Charles St., Cambridge, MA 02141</div>
+          <div class="phone"><span class="muted">No phone listed</span></div>
+        </div>
+        <div class="what">
+          <div class="modes"><span class="pill ftl">FTL</span><span class="equip">heavy haul, oversize</span><a class="pill deal" href="https://www.gevernova.com/news/press-releases/ge-vernova-crusoe-announce-major-29-unit-aeroderivative-gas-turbine-deliver-ai-data-centers" target="_blank" rel="noopener" title="Public announcement of a data center or grid project deal">Announced deal ↗</a></div>
+          <p class="commodity">gas turbines, aeroderivative turbine packages, generators and grid equipment; 29 LM2500XPRESS aeroderivative units (about 1 GW) for Crusoe AI data centers, announced July 2025 and since delivered</p>
+          <p class="near"><span class="lbl">Nearest</span> VA1 (CleanArc, Caroline Co., VA) <b>~450 mi</b>; Champlain Hudson Power Express (HVDC) <b>~140 mi</b></p>
+        </div>
+      </li>
+      <li class="lead" data-lead="{&quot;n&quot;: &quot;Bloom Energy&quot;, &quot;p&quot;: &quot;&quot;, &quot;a&quot;: &quot;4353 N. First St., San Jose, CA 95134 (headquarters; East Coast plant in Newark, DE)&quot;, &quot;c&quot;: &quot;FTL (flatbed, dry van): solid oxide fuel cell power modules; Oracle, Borderplex and Bloom will power Oracle&#x27;s Project Jupiter data center campus with Bloom fuel cells (Apr 2026); AEP also agreed to buy up to 1 GW of Bloom fuel cells for data center customers (Nov 2024)&quot;, &quot;u&quot;: &quot;https://www.google.com/search?q=Bloom+Energy+4353+N.+First+St.%2C+San+Jose%2C+CA+95134+%28headquarters%3B+East+Coast+plant+in+Newark%2C+DE%29&quot;}" data-search="bloom energy 4353 n. first st., san jose, ca 95134 (headquarters; east coast plant in newark, de) ftl (flatbed, dry van): solid oxide fuel cell power modules; oracle, borderplex and bloom will power oracle&#x27;s project jupiter data center campus with bloom fuel cells (apr 2026); aep also agreed to buy up to 1 gw of bloom fuel cells for data center customers (nov 2024)" data-mode="ftl">
+        <fieldset class="tags" data-key="b60-bloom-energy"><legend class="sr">Status of Bloom Energy</legend><label class="tg new"><input type="checkbox" value="new"><span>New</span></label><label class="tg active"><input type="checkbox" value="active"><span>Active</span></label><label class="tg inactive"><input type="checkbox" value="inactive"><span>Inactive</span></label><label class="tg deleted"><input type="checkbox" value="deleted"><span>Deleted</span></label><label class="tg customer"><input type="checkbox" value="customer"><span>Customer</span></label><label class="tg na"><input type="checkbox" value="na"><span>FT/OOB/other</span></label></fieldset>
+        <div class="who">
+          <div class="nameline">
+            <button type="button" class="copy" id="copy-b60-9" aria-label="Copy Bloom Energy">Copy</button>
+            <a class="name" href="https://www.google.com/search?q=Bloom+Energy+4353+N.+First+St.%2C+San+Jose%2C+CA+95134+%28headquarters%3B+East+Coast+plant+in+Newark%2C+DE%29" target="_blank" rel="noopener">Bloom Energy<span class="ext" aria-hidden="true">↗</span></a>
+          </div>
+          <div class="addr">4353 N. First St., San Jose, CA 95134 (headquarters; East Coast plant in Newark, DE)</div>
+          <div class="phone"><span class="muted">No phone listed</span></div>
+        </div>
+        <div class="what">
+          <div class="modes"><span class="pill ftl">FTL</span><span class="equip">flatbed, dry van</span><a class="pill deal" href="https://www.oracle.com/news/announcement/oracle-borderplex-and-bloom-energy-to-power-project-jupiter-with-fuel-cell-technology-2026-04-27/" target="_blank" rel="noopener" title="Public announcement of a data center or grid project deal">Announced deal ↗</a></div>
+          <p class="commodity">solid oxide fuel cell power modules; Oracle, Borderplex and Bloom will power Oracle&#x27;s Project Jupiter data center campus with Bloom fuel cells (Apr 2026); AEP also agreed to buy up to 1 GW of Bloom fuel cells for data center customers (Nov 2024)</p>
+          <p class="near"><span class="multi">2 projects within 100 mi</span> Alviso campus (Microsoft, San Jose, CA) <b>~2 mi</b>; SMF02 (Prime Data Centers, Sacramento, CA) <b>~80 mi</b></p>
+        </div>
+      </li>
+      <li class="lead" data-lead="{&quot;n&quot;: &quot;ABB Inc.&quot;, &quot;p&quot;: &quot;&quot;, &quot;a&quot;: &quot;305 Gregson Dr., Cary, NC 27511&quot;, &quot;c&quot;: &quot;FTL (flatbed, step deck, air-ride van): medium-voltage switchgear, UPS and power distribution equipment (MV plants in Lake Mary, FL, Pinetops, NC and Florence, SC); expanded partnership to supply Applied Digital&#x27;s 300 MW Polaris Forge 2 campus in North Dakota (Nov 2025)&quot;, &quot;u&quot;: &quot;https://www.google.com/search?q=ABB+Inc.+305+Gregson+Dr.%2C+Cary%2C+NC+27511&quot;}" data-search="abb inc. 305 gregson dr., cary, nc 27511 ftl (flatbed, step deck, air-ride van): medium-voltage switchgear, ups and power distribution equipment (mv plants in lake mary, fl, pinetops, nc and florence, sc); expanded partnership to supply applied digital&#x27;s 300 mw polaris forge 2 campus in north dakota (nov 2025)" data-mode="ftl">
+        <fieldset class="tags" data-key="b60-abb-inc"><legend class="sr">Status of ABB Inc.</legend><label class="tg new"><input type="checkbox" value="new"><span>New</span></label><label class="tg active"><input type="checkbox" value="active"><span>Active</span></label><label class="tg inactive"><input type="checkbox" value="inactive"><span>Inactive</span></label><label class="tg deleted"><input type="checkbox" value="deleted"><span>Deleted</span></label><label class="tg customer"><input type="checkbox" value="customer"><span>Customer</span></label><label class="tg na"><input type="checkbox" value="na"><span>FT/OOB/other</span></label></fieldset>
+        <div class="who">
+          <div class="nameline">
+            <button type="button" class="copy" id="copy-b60-10" aria-label="Copy ABB Inc.">Copy</button>
+            <a class="name" href="https://www.google.com/search?q=ABB+Inc.+305+Gregson+Dr.%2C+Cary%2C+NC+27511" target="_blank" rel="noopener">ABB Inc.<span class="ext" aria-hidden="true">↗</span></a>
+          </div>
+          <div class="addr">305 Gregson Dr., Cary, NC 27511</div>
+          <div class="phone"><span class="muted">No phone listed</span></div>
+        </div>
+        <div class="what">
+          <div class="modes"><span class="pill ftl">FTL</span><span class="equip">flatbed, step deck, air-ride van</span><a class="pill deal" href="https://new.abb.com/news/detail/130940/abb-expands-power-technology-partnership-with-applied-digital-for-ai-ready-data-centers" target="_blank" rel="noopener" title="Public announcement of a data center or grid project deal">Announced deal ↗</a></div>
+          <p class="commodity">medium-voltage switchgear, UPS and power distribution equipment (MV plants in Lake Mary, FL, Pinetops, NC and Florence, SC); expanded partnership to supply Applied Digital&#x27;s 300 MW Polaris Forge 2 campus in North Dakota (Nov 2025)</p>
+          <p class="near"><span class="lbl">Nearest</span> RCH-1 (Iron Mountain, Richmond, VA) <b>~150 mi</b>; PJM 765 kV (Valley Link and related) <b>~230 mi</b></p>
+        </div>
+      </li>
+      <li class="lead" data-lead="{&quot;n&quot;: &quot;Form Energy&quot;, &quot;p&quot;: &quot;&quot;, &quot;a&quot;: &quot;30 Dane St., Somerville, MA 02143 (head office; batteries built in Weirton, WV)&quot;, &quot;c&quot;: &quot;FTL (flatbed, dry van): iron-air multi-day battery modules from its Weirton, WV factory; 30 GWh of batteries in Google&#x27;s Minnesota data center energy deal with Xcel Energy&quot;, &quot;u&quot;: &quot;https://www.google.com/search?q=Form+Energy+30+Dane+St.%2C+Somerville%2C+MA+02143+%28head+office%3B+batteries+built+in+Weirton%2C+WV%29&quot;}" data-search="form energy 30 dane st., somerville, ma 02143 (head office; batteries built in weirton, wv) ftl (flatbed, dry van): iron-air multi-day battery modules from its weirton, wv factory; 30 gwh of batteries in google&#x27;s minnesota data center energy deal with xcel energy" data-mode="ftl">
+        <fieldset class="tags" data-key="b60-form-energy"><legend class="sr">Status of Form Energy</legend><label class="tg new"><input type="checkbox" value="new"><span>New</span></label><label class="tg active"><input type="checkbox" value="active"><span>Active</span></label><label class="tg inactive"><input type="checkbox" value="inactive"><span>Inactive</span></label><label class="tg deleted"><input type="checkbox" value="deleted"><span>Deleted</span></label><label class="tg customer"><input type="checkbox" value="customer"><span>Customer</span></label><label class="tg na"><input type="checkbox" value="na"><span>FT/OOB/other</span></label></fieldset>
+        <div class="who">
+          <div class="nameline">
+            <button type="button" class="copy" id="copy-b60-11" aria-label="Copy Form Energy">Copy</button>
+            <a class="name" href="https://www.google.com/search?q=Form+Energy+30+Dane+St.%2C+Somerville%2C+MA+02143+%28head+office%3B+batteries+built+in+Weirton%2C+WV%29" target="_blank" rel="noopener">Form Energy<span class="ext" aria-hidden="true">↗</span></a>
+          </div>
+          <div class="addr">30 Dane St., Somerville, MA 02143 (head office; batteries built in Weirton, WV)</div>
+          <div class="phone"><span class="muted">No phone listed</span></div>
+        </div>
+        <div class="what">
+          <div class="modes"><span class="pill ftl">FTL</span><span class="equip">flatbed, dry van</span><a class="pill deal" href="https://www.energy-storage.news/google-minnesota-data-centre-energy-deal-includes-30gwh-multi-day-iron-air-batteries-from-form-energy/" target="_blank" rel="noopener" title="Public announcement of a data center or grid project deal">Announced deal ↗</a></div>
+          <p class="commodity">iron-air multi-day battery modules from its Weirton, WV factory; 30 GWh of batteries in Google&#x27;s Minnesota data center energy deal with Xcel Energy</p>
+          <p class="near"><span class="lbl">Nearest</span> VA1 (CleanArc, Caroline Co., VA) <b>~450 mi</b>; Champlain Hudson Power Express (HVDC) <b>~140 mi</b></p>
+        </div>
+      </li>
+      <li class="lead" data-lead="{&quot;n&quot;: &quot;HD Hyundai Power Transformers USA&quot;, &quot;p&quot;: &quot;&quot;, &quot;a&quot;: &quot;215 Folmar Pkwy., Montgomery, AL 36105&quot;, &quot;c&quot;: &quot;FTL (heavy haul, oversize): large power transformers built in Montgomery or imported from Korea; HD Hyundai Electric won 765 kV transformer orders for the U.S. &#x27;Backbone&#x27; transmission build-out (Jan 2026, after a Sept 2025 Texas 765 kV order)&quot;, &quot;u&quot;: &quot;https://www.google.com/search?q=HD+Hyundai+Power+Transformers+USA+215+Folmar+Pkwy.%2C+Montgomery%2C+AL+36105&quot;}" data-search="hd hyundai power transformers usa 215 folmar pkwy., montgomery, al 36105 ftl (heavy haul, oversize): large power transformers built in montgomery or imported from korea; hd hyundai electric won 765 kv transformer orders for the u.s. &#x27;backbone&#x27; transmission build-out (jan 2026, after a sept 2025 texas 765 kv order)" data-mode="ftl">
+        <fieldset class="tags" data-key="b60-hd-hyundai-power-transformers-usa"><legend class="sr">Status of HD Hyundai Power Transformers USA</legend><label class="tg new"><input type="checkbox" value="new"><span>New</span></label><label class="tg active"><input type="checkbox" value="active"><span>Active</span></label><label class="tg inactive"><input type="checkbox" value="inactive"><span>Inactive</span></label><label class="tg deleted"><input type="checkbox" value="deleted"><span>Deleted</span></label><label class="tg customer"><input type="checkbox" value="customer"><span>Customer</span></label><label class="tg na"><input type="checkbox" value="na"><span>FT/OOB/other</span></label></fieldset>
+        <div class="who">
+          <div class="nameline">
+            <button type="button" class="copy" id="copy-b60-12" aria-label="Copy HD Hyundai Power Transformers USA">Copy</button>
+            <a class="name" href="https://www.google.com/search?q=HD+Hyundai+Power+Transformers+USA+215+Folmar+Pkwy.%2C+Montgomery%2C+AL+36105" target="_blank" rel="noopener">HD Hyundai Power Transformers USA<span class="ext" aria-hidden="true">↗</span></a>
+          </div>
+          <div class="addr">215 Folmar Pkwy., Montgomery, AL 36105</div>
+          <div class="phone"><span class="muted">No phone listed</span></div>
+        </div>
+        <div class="what">
+          <div class="modes"><span class="pill ftl">FTL</span><span class="equip">heavy haul, oversize</span><a class="pill deal" href="https://transformer-technology.com/hd-hyundai-electric-wins-765kv-transformer-contract-in-the-u-s/" target="_blank" rel="noopener" title="Public announcement of a data center or grid project deal">Announced deal ↗</a></div>
+          <p class="commodity">large power transformers built in Montgomery or imported from Korea; HD Hyundai Electric won 765 kV transformer orders for the U.S. &#x27;Backbone&#x27; transmission build-out (Jan 2026, after a Sept 2025 Texas 765 kV order)</p>
+          <p class="near"><span class="lbl">Within 100 mi</span> Columbiana data center (Digi Power X, Columbiana, AL) <b>~60 mi</b></p>
+        </div>
+      </li>
+    </ul>
+  </section>
+  <p class="empty" id="none" hidden>No leads match that filter.</p>
+  <p class="foot">Every copy is one row per company with four cells, left to right: company (a clickable link to its Google search), phone (left blank when there is none), address, commodity. "Copy batch" copies one row for each lead showing in that batch, with no header row, so it pastes straight under your existing columns.</p>
+</div>
+<div class="toast" id="toast" role="status" aria-live="polite" hidden></div>
+
+<script>
+(function () {
+  var toast = document.getElementById("toast"), tt;
+  function say(msg) { toast.textContent = msg; toast.hidden = false; clearTimeout(tt); tt = setTimeout(function () { toast.hidden = true; }, 1600); }
+
+  function copyEvent(text, html) {
+    var ok = false;
+    function onCopy(ev) { ev.preventDefault(); ev.clipboardData.setData("text/plain", text); if (html) ev.clipboardData.setData("text/html", html); ok = true; }
+    document.addEventListener("copy", onCopy);
+    try { document.execCommand("copy"); } catch (e) {}
+    document.removeEventListener("copy", onCopy);
+    return ok;
+  }
+  function textareaCopy(text) {
+    var ta = document.createElement("textarea");
+    ta.value = text; ta.setAttribute("readonly", ""); ta.style.position = "fixed"; ta.style.top = "0"; ta.style.left = "0"; ta.style.opacity = "0";
+    document.body.appendChild(ta); ta.focus(); ta.select();
+    var ok = false; try { ok = document.execCommand("copy"); } catch (e) {}
+    document.body.removeChild(ta);
+    return ok;
+  }
+  function copy(text, html, btn, label) {
+    function done() {
+      var old = btn.textContent; btn.textContent = "Copied"; btn.classList.add("copied");
+      setTimeout(function () { btn.textContent = old; btn.classList.remove("copied"); }, 1400);
+      say(label);
+    }
+    function fallback() {
+      if (copyEvent(text, html) || textareaCopy(text)) done();
+      else say("Copy was blocked. Select the text and copy it by hand.");
+    }
+    if (navigator.clipboard && navigator.clipboard.writeText) {
+      navigator.clipboard.writeText(text).then(done, fallback);
+    } else { fallback(); }
+  }
+  function cell(x) { return String(x || "").replace(/[\t\r\n]+/g, " ").trim(); }
+  function esc(s) { return s.replace(/&/g, "&amp;").replace(/</g, "&lt;").replace(/>/g, "&gt;").replace(/"/g, "&quot;"); }
+  function xq(x) { return '"' + x.replace(/"/g, '""') + '"'; }
+  function nameCell(d) {
+    var n = cell(d.n);
+    if (!d.u || d.u.length > 250) return n;
+    return "=HYPERLINK(" + xq(d.u) + "," + xq(n) + ")";
+  }
+  function asRow(d) { return [nameCell(d), cell(d.p), cell(d.a), cell(d.c)].join("\t"); }
+  function asTr(d) {
+    var n = esc(cell(d.n));
+    if (d.u) n = '<a href="' + esc(d.u) + '">' + n + "</a>";
+    return "<tr><td>" + n + "</td><td>" + esc(cell(d.p)) + "</td><td>" + esc(cell(d.a)) + "</td><td>" + esc(cell(d.c)) + "</td></tr>";
+  }
+  function asTable(trs) { return '<meta charset="utf-8"><table style="font-family:Aptos Narrow,Calibri,Arial,sans-serif;font-size:11pt">' + trs.join("") + "</table>"; }
+  document.querySelectorAll("button.copy").forEach(function (b) {
+    b.addEventListener("click", function () {
+      var d = JSON.parse(b.closest(".lead").dataset.lead);
+      copy(asRow(d), null, b, "Copied " + d.n);
+    });
+  });
+  document.querySelectorAll("button.copy-batch[data-batch]").forEach(function (b) {
+    b.addEventListener("click", function () {
+      var sec = document.getElementById("batch-" + b.dataset.batch);
+      var rows = [], trs = [];
+      sec.querySelectorAll(".lead:not([hidden])").forEach(function (li) {
+        var d = JSON.parse(li.dataset.lead); rows.push(asRow(d)); trs.push(asTr(d));
+      });
+      copy(rows.join("\r\n") + "\r\n", null, b, "Copied " + rows.length + " leads from Batch " + b.dataset.batch);
+    });
+  });
+
+  /* Prospect status: one per lead, shared through the page's database when available. */
+  var KINDS = ["new", "active", "inactive", "deleted", "customer", "na"];
+  var state = {}, col = null, shared = false, chains = {};
+  var sync = document.getElementById("sync");
+  function tallyInto(el, keys) {
+    var c = { new: 0, active: 0, inactive: 0, deleted: 0, customer: 0, na: 0 }, none = 0;
+    keys.forEach(function (k) { var l = state[k] || []; if (!l.length) none++; l.forEach(function (s) { if (c.hasOwnProperty(s)) c[s] += 1 / l.length; }); });
+    el.querySelectorAll("[data-k]").forEach(function (n) { n.textContent = n.dataset.k === "none" ? none : fmtN(c[n.dataset.k]); });
+  }
+  function norm(v) { var l = Array.isArray(v) ? v : (v ? [v] : []); return l.filter(function (x) { return KINDS.indexOf(x) !== -1; }); }
+  function fmtN(x) { return String(Math.round(x * 100) / 100); }
+  function render() {
+    document.querySelectorAll(".tags").forEach(function (fs) {
+      var l = state[fs.dataset.key] || [];
+      fs.querySelectorAll("input").forEach(function (i) { i.checked = l.indexOf(i.value) !== -1; });
+    });
+    var all = [];
+    document.querySelectorAll(".batch").forEach(function (sec) {
+      var keys = Array.prototype.map.call(sec.querySelectorAll(".tags"), function (fs) { return fs.dataset.key; });
+      all = all.concat(keys);
+      tallyInto(sec.querySelector(".tally"), keys);
+    });
+    tallyInto(document.getElementById("tally-all"), all);
+    var left = all.filter(function (k) { return !(state[k] && state[k].length); }).length;
+    document.querySelectorAll(".bulk button").forEach(function (b) { b.disabled = left > 0; });
+    document.getElementById("bulkhint").textContent = left > 0 ? "These unlock once every lead is marked (" + left + " left)." : "Every lead is marked. Each button copies one Excel row per lead.";
+  }
+  function saveLocal() { try { localStorage.setItem("leadstatus", JSON.stringify(state)); } catch (e) {} }
+  function write(key, s) {
+    if (!shared) { saveLocal(); return; }
+    var ref = col.doc(key);
+    chains[key] = (chains[key] || Promise.resolve()).then(function () {
+      return s.length ? ref.set({ s: s }) : ref.delete();
+    }).catch(function () { say("That checkmark didn't save. Check your connection and try again."); });
+  }
+  document.querySelectorAll(".bulk button").forEach(function (b) {
+    b.addEventListener("click", function () {
+      var kind = b.dataset.kind, rows = [];
+      document.querySelectorAll(".lead").forEach(function (li) {
+        var key = li.querySelector(".tags").dataset.key;
+        if ((state[key] || []).indexOf(kind) !== -1) rows.push(asRow(JSON.parse(li.dataset.lead)));
+      });
+      if (!rows.length) { say("No leads are marked " + (kind === "customer" ? "Customer" : "Deleted") + "."); return; }
+      copy(rows.join("\r\n") + "\r\n", null, b, "Copied " + rows.length + (kind === "customer" ? " customer" : " deleted") + (rows.length === 1 ? " lead" : " leads"));
+    });
+  });
+  document.querySelectorAll(".tags input").forEach(function (i) {
+    i.addEventListener("change", function () {
+      var key = i.closest(".tags").dataset.key;
+      var l = Array.prototype.filter.call(i.closest(".tags").querySelectorAll("input"), function (x) { return x.checked; }).map(function (x) { return x.value; });
+      if (l.length) state[key] = l; else delete state[key];
+      render(); write(key, l);
+    });
+  });
+  try { var raw = JSON.parse(localStorage.getItem("leadstatus") || "{}") || {}; state = {}; Object.keys(raw).forEach(function (k) { var l = norm(raw[k]); if (l.length) state[k] = l; }); } catch (e) { state = {}; }
+  render();
+  sync.textContent = "Checkmarks are saved in this browser only.";
+  if (window.claude && window.claude.use) {
+    window.claude.use("db").then(function (db) {
+      if (!db) return;
+      col = db.collection("leadstatus");
+      var timer = setTimeout(function () { sync.textContent = "Can't reach saved checkmarks yet. Showing what this browser last saw."; }, 10000);
+      col.onSnapshot(function (snap) {
+        if (!snap.metadata || !snap.metadata.fromCache) clearTimeout(timer);
+        shared = true;
+        var next = {};
+        snap.docs.forEach(function (d) { var v = d.data(); var l = norm(v && v.s); if (l.length) next[d.id] = l; });
+        state = next; render();
+        sync.textContent = "Checkmarks save automatically and show for anyone you share this page with.";
+      }, function () {
+        clearTimeout(timer); shared = false;
+        sync.textContent = "Saved checkmarks couldn't load, so changes are kept in this browser only.";
+      });
+    }, function () {});
+  }
+
+  var q = document.getElementById("q"), none = document.getElementById("none");
+  q.addEventListener("input", function () {
+    var t = q.value.trim().toLowerCase(), shown = 0;
+    document.querySelectorAll(".lead").forEach(function (li) {
+      var hit = !t || li.dataset.search.indexOf(t) !== -1; li.hidden = !hit; if (hit) shown++;
+    });
+    document.querySelectorAll(".batch").forEach(function (sec) {
+      sec.hidden = !sec.querySelector(".lead:not([hidden])");
+    });
+    none.hidden = shown > 0;
+  });
+})();
+</script>
+
+</body></html>

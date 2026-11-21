@@ -1,0 +1,734 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+</head><body>
+<nav style="max-width:1160px;margin:12px auto 0;padding:0 16px;display:flex;gap:18px;font:500 14px system-ui,sans-serif"><a href="index.html">All batches</a><a href="batch-58.html">&larr; Batch 58</a><a href="batch-60.html">Batch 60 &rarr;</a></nav>
+<title>Batch 59</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Barlow+Semi+Condensed:wght@500;600;700&family=IBM+Plex+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap">
+<style>
+/* Layout: a working call sheet. Sticky toolbar, one section per batch, one row per lead with copy on the right. */
+:root {
+  --bg: #f4f6f5; --surface: #ffffff; --ink: #18211d; --ink-2: #4c5a53; --line: #d9e0dc;
+  --accent: #1d6b4e; --accent-ink: #ffffff; --accent-soft: #e2f0e9;
+  --ltl: #5b6b84; --ltl-soft: #e6eaf1; --warn: #8a5a00; --warn-soft: #fbf1dc; --star: #c28a00;
+  --st-new: #2e9e50; --st-active: #22d3ff; --st-inactive: #8b938f; --st-deleted: #d2443a; --st-customer: #39ff7a;
+  --display: "Barlow Semi Condensed", "Arial Narrow", system-ui, sans-serif;
+  --body: "IBM Plex Sans", system-ui, -apple-system, "Segoe UI", sans-serif;
+  --mono: "IBM Plex Mono", ui-monospace, SFMono-Regular, Menlo, monospace;
+}
+@media (prefers-color-scheme: dark) { :root:not([data-theme="light"]) {
+  --bg: #111614; --surface: #19201d; --ink: #e6ece9; --ink-2: #a3b1aa; --line: #2c3632;
+  --accent: #5cc49a; --accent-ink: #0d1a14; --accent-soft: #1d3329;
+  --ltl: #a9b6cc; --ltl-soft: #242c38; --warn: #f0c46a; --warn-soft: #33290f; --star: #f2c14e; --st-new: #3fb766; --st-active: #22d3ff; --st-inactive: #7d8682; --st-deleted: #e5584d; --st-customer: #39ff7a; color-scheme: dark; } }
+:root[data-theme="dark"] {
+  --bg: #111614; --surface: #19201d; --ink: #e6ece9; --ink-2: #a3b1aa; --line: #2c3632;
+  --accent: #5cc49a; --accent-ink: #0d1a14; --accent-soft: #1d3329;
+  --ltl: #a9b6cc; --ltl-soft: #242c38; --warn: #f0c46a; --warn-soft: #33290f; --star: #f2c14e; --st-new: #3fb766; --st-active: #22d3ff; --st-inactive: #7d8682; --st-deleted: #e5584d; --st-customer: #39ff7a; color-scheme: dark; }
+* { box-sizing: border-box; }
+body { background: var(--bg); color: var(--ink); font-family: var(--body); font-size: 15px; line-height: 1.5;
+  padding-left: max(16px, env(safe-area-inset-left, 0px)); padding-right: max(16px, env(safe-area-inset-right, 0px)); padding-block: 0 48px; }
+body::before { content: ""; position: fixed; inset: 0 0 auto; height: env(safe-area-inset-top, 0px); z-index: 10; background: var(--bg); }
+.wrap { max-width: 1120px; margin: 0 auto; }
+.top { padding-block: 28px 8px; display: grid; gap: 6px; }
+.top h1 { font-family: var(--display); font-weight: 700; font-size: clamp(28px, 4vw, 38px); letter-spacing: .01em; margin: 0; text-wrap: balance; }
+.top p { margin: 0; color: var(--ink-2); max-width: 70ch; }
+.bar { position: sticky; top: env(safe-area-inset-top, 0px); z-index: 5; background: var(--bg); padding-block: 12px; border-bottom: 1px solid var(--line);
+  display: flex; flex-wrap: wrap; gap: 10px 16px; align-items: center; }
+.bar input[type=search] { flex: 1 1 220px; min-width: 0; font: inherit; padding: 8px 12px; border: 1px solid var(--line); border-radius: 6px; background: var(--surface); color: var(--ink); }
+.bar input:focus-visible, button:focus-visible, a:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; }
+.seglbl { font: 600 11px var(--body); text-transform: uppercase; letter-spacing: .08em; color: var(--ink-2); }
+.jump { display: flex; gap: 6px; align-items: center; flex-wrap: wrap; }
+.jump a { font: 600 14px var(--display); color: var(--accent); text-decoration: none; padding: 3px 8px; border: 1px solid var(--line); border-radius: 4px; background: var(--surface); font-variant-numeric: tabular-nums; }
+.batch { padding-block: 28px 8px; scroll-margin-top: 80px; }
+.bhead { display: flex; flex-wrap: wrap; justify-content: space-between; align-items: end; gap: 10px 16px; border-bottom: 2px solid var(--ink); padding-bottom: 8px; }
+.btitle { display: grid; gap: 2px; min-width: 0; }
+.bnum { font: 600 12px var(--body); text-transform: uppercase; letter-spacing: .1em; color: var(--accent); }
+.bhead h2 { font-family: var(--display); font-weight: 600; font-size: 24px; margin: 0; line-height: 1.15; text-wrap: balance; }
+.bmeta { display: flex; flex-wrap: wrap; gap: 8px 12px; align-items: center; }
+.count { font-variant-numeric: tabular-nums; color: var(--ink-2); font-size: 14px; }
+.status { font: 600 11px var(--body); text-transform: uppercase; letter-spacing: .08em; padding: 3px 8px; border-radius: 99px; }
+.status.open { background: var(--warn-soft); color: var(--warn); }
+.status.done { background: var(--accent-soft); color: var(--accent); }
+.intro { color: var(--ink-2); max-width: 75ch; margin: 12px 0 6px; }
+.flag { background: var(--warn-soft); color: var(--ink); border-radius: 6px; padding: 8px 12px; margin: 8px 0 4px; font-size: 14px; max-width: 90ch; }
+.lbl { font: 600 11px var(--body); text-transform: uppercase; letter-spacing: .08em; color: var(--ink-2); margin-right: 4px; }
+.flag .lbl { color: var(--warn); }
+.leads { list-style: none; margin: 8px 0 0; padding: 0; display: grid; gap: 0; }
+.nameline { display: flex; align-items: center; gap: 10px; min-width: 0; }
+.nameline .name { min-width: 0; }
+.nameline button.copy { padding: 4px 10px; font-size: 12px; flex: none; }
+.addr, .phone { padding-left: 0; }
+.lead { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1.35fr) 200px; gap: 8px 24px; padding: 14px 4px; border-bottom: 1px solid var(--line); align-items: start; }
+.lead[hidden] { display: none !important; }
+.who, .what { min-width: 0; display: grid; gap: 3px; }
+.name { font-weight: 600; font-size: 16px; color: var(--ink); text-decoration: none; }
+.name:hover { color: var(--accent); text-decoration: underline; text-underline-offset: 3px; }
+.ext { font-size: 12px; color: var(--accent); margin-left: 4px; }
+.star { color: var(--star); margin-right: 5px; }
+.addr { font-family: var(--mono); font-size: 13px; color: var(--ink); }
+.phone { font-family: var(--mono); font-size: 13px; }
+.muted { color: var(--ink-2); font-family: var(--body); font-size: 13px; }
+.modes { display: flex; gap: 8px; align-items: center; flex-wrap: wrap; }
+.pill { font: 700 12px var(--display); letter-spacing: .06em; padding: 2px 8px; border-radius: 4px; }
+.pill.ftl { background: var(--accent); color: var(--accent-ink); }
+.pill.both { background: var(--accent-soft); color: var(--accent); }
+.pill.ltl { background: var(--ltl-soft); color: var(--ltl); }
+.pill.fleet { background: var(--warn-soft); color: var(--warn); text-decoration: none; }
+.pill.deal { background: var(--surface); color: var(--accent); border: 1px solid var(--accent); text-decoration: none; }
+.equip { font-size: 13px; color: var(--ink-2); }
+.commodity { margin: 0; }
+.near { margin: 0; font-size: 13px; color: var(--ink-2); }
+.near b { color: var(--ink); font-weight: 700; }
+.multi { display: inline-block; font: 700 11px var(--body); text-transform: uppercase; letter-spacing: .06em; padding: 2px 7px; border-radius: 4px; background: var(--warn-soft); color: var(--warn); margin-right: 4px; }
+button.copy, button.copy-batch { font: 600 13px var(--body); cursor: pointer; border-radius: 6px; padding: 8px 14px; border: 1px solid var(--accent); background: var(--surface); color: var(--accent); white-space: nowrap; }
+button.copy:hover, button.copy-batch:hover { background: var(--accent-soft); }
+button.copied { background: var(--accent) !important; color: var(--accent-ink) !important; }
+.empty { color: var(--ink-2); padding: 24px 4px; }
+.foot { color: var(--ink-2); font-size: 13px; margin-top: 32px; }
+.toast { position: fixed; left: 50%; transform: translateX(-50%); bottom: calc(16px + env(safe-area-inset-bottom, 0px)); background: var(--ink); color: var(--bg); padding: 8px 14px; border-radius: 6px; font-size: 14px; z-index: 20; }
+@media (max-width: 720px) {
+  .lead { grid-template-columns: minmax(0, 1fr); }
+  .tags { max-width: 240px; }
+}
+.sr { position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap; }
+.tags { order: 3; border: 0; margin: 0; padding: 0; min-width: 0; display: grid; grid-template-columns: 1fr 1fr; gap: 6px 8px; align-self: start; }
+.tg { display: flex; align-items: center; gap: 6px; font-size: 13px; color: var(--ink-2); cursor: pointer; user-select: none; }
+.tg input { appearance: none; -webkit-appearance: none; margin: 0; width: 18px; height: 18px; flex: none; border: 1.5px solid var(--ink-2); border-radius: 4px; background: var(--surface); cursor: pointer; display: grid; place-content: center; }
+.tg input::after { content: ""; width: 5px; height: 9px; border: solid var(--chk, #fff); border-width: 0 2px 2px 0; transform: translateY(-1px) rotate(45deg); opacity: 0; }
+.tg input:checked::after { opacity: 1; }
+.tg input:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; }
+.tg.new { --c: var(--st-new); } .tg.active { --c: var(--st-active); --chk: #0b2a3c; } .tg.inactive { --c: var(--st-inactive); } .tg.deleted { --c: var(--st-deleted); } .tg.customer { --c: var(--st-customer); --chk: #0f3a1c; } .tg.na { --c: #000; --chk: #fff; } .tg.na input:checked { border-color: var(--ink-2); }
+.tg input:checked { background: var(--c); border-color: var(--c); }
+.tally { display: flex; flex-wrap: wrap; gap: 6px 14px; align-items: center; font-size: 13px; color: var(--ink-2); margin-top: 10px; }
+.tc { display: inline-flex; align-items: center; gap: 5px; white-space: nowrap; }
+.tc b { color: var(--ink); font-variant-numeric: tabular-nums; }
+.tc i { width: 10px; height: 10px; border-radius: 3px; background: var(--c); }
+.tc.new { --c: var(--st-new); } .tc.active { --c: var(--st-active); } .tc.inactive { --c: var(--st-inactive); } .tc.deleted { --c: var(--st-deleted); } .tc.customer { --c: var(--st-customer); } .tc.na { --c: #000; } .tc.na i { box-shadow: 0 0 0 1px var(--ink-2); }
+.allbox { margin-top: 10px; padding: 10px 14px; background: var(--surface); border: 1px solid var(--line); border-radius: 8px; }
+.allbox .tally { margin-top: 4px; font-size: 14px; }
+.bulk { display: flex; flex-wrap: wrap; gap: 8px 10px; align-items: center; margin-top: 10px; }
+.bulk button { padding: 6px 12px; }
+.bulk button:disabled { opacity: .45; cursor: not-allowed; }
+.bulk button:disabled:hover { background: var(--surface); }
+.bulkhint { font-size: 12px; color: var(--ink-2); }
+.sync { margin: 6px 0 0; font-size: 12px; color: var(--ink-2); }
+@media (prefers-reduced-motion: reduce) { * { transition: none !important; } }
+</style>
+
+<div class="wrap">
+  <header class="top">
+    <h1>Batch 59</h1>
+    <p>26 FTL-leaning leads in Batch 59. Click a company name to search it with its address in a new tab. Copy puts company, phone, address and commodity in four side-by-side cells, ready to paste into Excel as plain text, with the company name as a clickable link to the same Google search.</p>
+    <div class="allbox"><span class="seglbl">Batches 59 to 59 totals</span><div class="tally" id="tally-all"><span class="tc new"><i aria-hidden="true"></i>New <b data-k="new">0</b></span><span class="tc inactive"><i aria-hidden="true"></i>Inactive <b data-k="inactive">0</b></span><span class="tc deleted"><i aria-hidden="true"></i>Deleted <b data-k="deleted">0</b></span><span class="tc active"><i aria-hidden="true"></i>Active <b data-k="active">0</b></span><span class="tc customer"><i aria-hidden="true"></i>Customer <b data-k="customer">0</b></span><span class="tc na"><i aria-hidden="true"></i>FT/OOB/other <b data-k="na">0</b></span><span class="tc none">Unmarked <b data-k="none">0</b></span></div>
+      <div class="bulk">
+        <button type="button" class="copy-batch" id="copy-customer" data-kind="customer" disabled>Copy all customers</button>
+        <button type="button" class="copy-batch" id="copy-deleted" data-kind="deleted" disabled>Copy all deleted</button>
+        <span class="bulkhint" id="bulkhint"></span>
+      </div>
+      <p class="sync" id="sync"></p></div>
+  </header>
+
+  <div class="bar">
+    <input type="search" id="q" placeholder="Filter by company, city, state or commodity" aria-label="Filter leads">
+    <nav class="jump" aria-label="Jump to batch"><span class="seglbl">Batch</span><a href="#batch-59">59</a></nav>
+  </div>
+
+  
+  <section class="batch" id="batch-59">
+    <header class="bhead">
+      <div class="btitle">
+        <span class="bnum">Batch 59</span>
+        <h2>equipment dealers and rental companies</h2>
+      </div>
+      <div class="bmeta">
+        <span class="status open">Open</span>
+        <span class="count">26 leads</span>
+        <button type="button" class="copy-batch" id="copybatch-59" data-batch="59">Copy batch</button>
+      </div>
+    </header>
+    <div class="tally" aria-label="Batch 59 status totals"><span class="tc new"><i aria-hidden="true"></i>New <b data-k="new">0</b></span><span class="tc inactive"><i aria-hidden="true"></i>Inactive <b data-k="inactive">0</b></span><span class="tc deleted"><i aria-hidden="true"></i>Deleted <b data-k="deleted">0</b></span><span class="tc active"><i aria-hidden="true"></i>Active <b data-k="active">0</b></span><span class="tc customer"><i aria-hidden="true"></i>Customer <b data-k="customer">0</b></span><span class="tc na"><i aria-hidden="true"></i>FT/OOB/other <b data-k="na">0</b></span><span class="tc none">Unmarked <b data-k="none">0</b></span></div>
+    <p class="intro">Dealers and rental fleets that move machines to data center and grid jobs. Rental companies shift equipment between branches and out to large jobsites, and Cat dealers move new, used and rental machines and generators across their territories. Each is listed once, at the headquarters or main store. The Cat dealers chosen cover the main data center states (Virginia, Georgia, Arizona, Texas, Ohio, Indiana, Pennsylvania, Louisiana, the Carolinas, Tennessee, Mississippi, Kentucky, New Jersey, Missouri, Iowa, Oklahoma and the Dakotas). None were in earlier files as leads. Each company name links to a Google search of the name and address.</p>
+    <p class="flag"><span class="lbl">Load notes</span> Dealers and rental companies run their own lowboys and delivery trucks for local moves, so expect them to tender longer moves and overflow rather than every load. Sunbelt and Sunstate have published fleet evidence and are tagged. HOLT CAT also sells an equipment hauling service. Carter, Empire, Gregory Poole, Louisiana CAT and Mustang CAT show only toll-free numbers or no number in the sources found; use the store line from their websites. Fabick, Altorfer, Boyd, Puckett, Blanchard, Foley and Ohio CAT are listed at their main rental store page, which may not be the head office.</p>
+    <ul class="leads">
+      <li class="lead" data-lead="{&quot;n&quot;: &quot;United Rentals&quot;, &quot;p&quot;: &quot;(203) 618-7156&quot;, &quot;a&quot;: &quot;100 First Stamford Pl., Stamford, CT 06902&quot;, &quot;c&quot;: &quot;FTL (flatbed, step deck, RGN): rental fleet moving between branches and out to large jobsites (aerial lifts, earthmoving, trench shoring, power and HVAC, site trailers; now includes Ahern Rentals)&quot;, &quot;u&quot;: &quot;https://www.google.com/search?q=United+Rentals+100+First+Stamford+Pl.%2C+Stamford%2C+CT+06902&quot;}" data-search="united rentals 100 first stamford pl., stamford, ct 06902 ftl (flatbed, step deck, rgn): rental fleet moving between branches and out to large jobsites (aerial lifts, earthmoving, trench shoring, power and hvac, site trailers; now includes ahern rentals)" data-mode="ftl">
+        <fieldset class="tags" data-key="b59-united-rentals"><legend class="sr">Status of United Rentals</legend><label class="tg new"><input type="checkbox" value="new"><span>New</span></label><label class="tg active"><input type="checkbox" value="active"><span>Active</span></label><label class="tg inactive"><input type="checkbox" value="inactive"><span>Inactive</span></label><label class="tg deleted"><input type="checkbox" value="deleted"><span>Deleted</span></label><label class="tg customer"><input type="checkbox" value="customer"><span>Customer</span></label><label class="tg na"><input type="checkbox" value="na"><span>FT/OOB/other</span></label></fieldset>
+        <div class="who">
+          <div class="nameline">
+            <button type="button" class="copy" id="copy-b59-0" aria-label="Copy United Rentals">Copy</button>
+            <a class="name" href="https://www.google.com/search?q=United+Rentals+100+First+Stamford+Pl.%2C+Stamford%2C+CT+06902" target="_blank" rel="noopener">United Rentals<span class="ext" aria-hidden="true">↗</span></a>
+          </div>
+          <div class="addr">100 First Stamford Pl., Stamford, CT 06902</div>
+          <div class="phone">(203) 618-7156</div>
+        </div>
+        <div class="what">
+          <div class="modes"><span class="pill ftl">FTL</span><span class="equip">flatbed, step deck, RGN</span></div>
+          <p class="commodity">rental fleet moving between branches and out to large jobsites (aerial lifts, earthmoving, trench shoring, power and HVAC, site trailers; now includes Ahern Rentals)</p>
+          <p class="near"><span class="lbl">Within 100 mi</span> Champlain Hudson Power Express (HVDC) <b>~20 mi</b></p>
+        </div>
+      </li>
+      <li class="lead" data-lead="{&quot;n&quot;: &quot;Sunbelt Rentals&quot;, &quot;p&quot;: &quot;(800) 667-9328&quot;, &quot;a&quot;: &quot;2341 Deerfield Dr., Fort Mill, SC 29715&quot;, &quot;c&quot;: &quot;FTL (flatbed, step deck, RGN): rental fleet moving between branches and out to large jobsites (aerial, earthmoving, power and HVAC, trench safety)&quot;, &quot;u&quot;: &quot;https://www.google.com/search?q=Sunbelt+Rentals+2341+Deerfield+Dr.%2C+Fort+Mill%2C+SC+29715&quot;}" data-search="sunbelt rentals 2341 deerfield dr., fort mill, sc 29715 ftl (flatbed, step deck, rgn): rental fleet moving between branches and out to large jobsites (aerial, earthmoving, power and hvac, trench safety)" data-mode="ftl">
+        <fieldset class="tags" data-key="b59-sunbelt-rentals"><legend class="sr">Status of Sunbelt Rentals</legend><label class="tg new"><input type="checkbox" value="new"><span>New</span></label><label class="tg active"><input type="checkbox" value="active"><span>Active</span></label><label class="tg inactive"><input type="checkbox" value="inactive"><span>Inactive</span></label><label class="tg deleted"><input type="checkbox" value="deleted"><span>Deleted</span></label><label class="tg customer"><input type="checkbox" value="customer"><span>Customer</span></label><label class="tg na"><input type="checkbox" value="na"><span>FT/OOB/other</span></label></fieldset>
+        <div class="who">
+          <div class="nameline">
+            <button type="button" class="copy" id="copy-b59-1" aria-label="Copy Sunbelt Rentals">Copy</button>
+            <a class="name" href="https://www.google.com/search?q=Sunbelt+Rentals+2341+Deerfield+Dr.%2C+Fort+Mill%2C+SC+29715" target="_blank" rel="noopener">Sunbelt Rentals<span class="ext" aria-hidden="true">↗</span></a>
+          </div>
+          <div class="addr">2341 Deerfield Dr., Fort Mill, SC 29715</div>
+          <div class="phone">(800) 667-9328</div>
+        </div>
+        <div class="what">
+          <div class="modes"><span class="pill ftl">FTL</span><span class="equip">flatbed, step deck, RGN</span><a class="pill fleet" href="https://www.forconstructionpros.com/rental/company/10074762/sunbelt-rentals" target="_blank" rel="noopener" title="Evidence this company runs its own trucks">Own fleet ↗</a></div>
+          <p class="commodity">rental fleet moving between branches and out to large jobsites (aerial, earthmoving, power and HVAC, trench safety)</p>
+          <p class="near"><span class="lbl">Nearest</span> RCH-1 (Iron Mountain, Richmond, VA) <b>~270 mi</b>; PJM 765 kV (Valley Link and related) <b>~230 mi</b></p>
+        </div>
+      </li>
+      <li class="lead" data-lead="{&quot;n&quot;: &quot;Herc Rentals&quot;, &quot;p&quot;: &quot;(855) 972-0967&quot;, &quot;a&quot;: &quot;27500 Riverview Center Blvd., Bonita Springs, FL 34134&quot;, &quot;c&quot;: &quot;FTL (flatbed, step deck, RGN): rental fleet moving between branches and out to large jobsites (now includes H&amp;E Equipment Services)&quot;, &quot;u&quot;: &quot;https://www.google.com/search?q=Herc+Rentals+27500+Riverview+Center+Blvd.%2C+Bonita+Springs%2C+FL+34134&quot;}" data-search="herc rentals 27500 riverview center blvd., bonita springs, fl 34134 ftl (flatbed, step deck, rgn): rental fleet moving between branches and out to large jobsites (now includes h&amp;e equipment services)" data-mode="ftl">
+        <fieldset class="tags" data-key="b59-herc-rentals"><legend class="sr">Status of Herc Rentals</legend><label class="tg new"><input type="checkbox" value="new"><span>New</span></label><label class="tg active"><input type="checkbox" value="active"><span>Active</span></label><label class="tg inactive"><input type="checkbox" value="inactive"><span>Inactive</span></label><label class="tg deleted"><input type="checkbox" value="deleted"><span>Deleted</span></label><label class="tg customer"><input type="checkbox" value="customer"><span>Customer</span></label><label class="tg na"><input type="checkbox" value="na"><span>FT/OOB/other</span></label></fieldset>
+        <div class="who">
+          <div class="nameline">
+            <button type="button" class="copy" id="copy-b59-2" aria-label="Copy Herc Rentals">Copy</button>
+            <a class="name" href="https://www.google.com/search?q=Herc+Rentals+27500+Riverview+Center+Blvd.%2C+Bonita+Springs%2C+FL+34134" target="_blank" rel="noopener">Herc Rentals<span class="ext" aria-hidden="true">↗</span></a>
+          </div>
+          <div class="addr">27500 Riverview Center Blvd., Bonita Springs, FL 34134</div>
+          <div class="phone">(855) 972-0967</div>
+        </div>
+        <div class="what">
+          <div class="modes"><span class="pill ftl">FTL</span><span class="equip">flatbed, step deck, RGN</span></div>
+          <p class="commodity">rental fleet moving between branches and out to large jobsites (now includes H&amp;E Equipment Services)</p>
+          <p class="near"><span class="lbl">Nearest</span> Columbiana data center (Digi Power X, Columbiana, AL) <b>~560 mi</b>; PJM 765 kV (Valley Link and related) <b>~830 mi</b></p>
+        </div>
+      </li>
+      <li class="lead" data-lead="{&quot;n&quot;: &quot;EquipmentShare&quot;, &quot;p&quot;: &quot;(888) 807-3687&quot;, &quot;a&quot;: &quot;5710 Bull Run Dr., Columbia, MO 65201&quot;, &quot;c&quot;: &quot;FTL (flatbed, step deck, RGN): rental fleet moving between branches and out to large jobsites (888-80-RENTS)&quot;, &quot;u&quot;: &quot;https://www.google.com/search?q=EquipmentShare+5710+Bull+Run+Dr.%2C+Columbia%2C+MO+65201&quot;}" data-search="equipmentshare 5710 bull run dr., columbia, mo 65201 ftl (flatbed, step deck, rgn): rental fleet moving between branches and out to large jobsites (888-80-rents)" data-mode="ftl">
+        <fieldset class="tags" data-key="b59-equipmentshare"><legend class="sr">Status of EquipmentShare</legend><label class="tg new"><input type="checkbox" value="new"><span>New</span></label><label class="tg active"><input type="checkbox" value="active"><span>Active</span></label><label class="tg inactive"><input type="checkbox" value="inactive"><span>Inactive</span></label><label class="tg deleted"><input type="checkbox" value="deleted"><span>Deleted</span></label><label class="tg customer"><input type="checkbox" value="customer"><span>Customer</span></label><label class="tg na"><input type="checkbox" value="na"><span>FT/OOB/other</span></label></fieldset>
+        <div class="who">
+          <div class="nameline">
+            <button type="button" class="copy" id="copy-b59-3" aria-label="Copy EquipmentShare">Copy</button>
+            <a class="name" href="https://www.google.com/search?q=EquipmentShare+5710+Bull+Run+Dr.%2C+Columbia%2C+MO+65201" target="_blank" rel="noopener">EquipmentShare<span class="ext" aria-hidden="true">↗</span></a>
+          </div>
+          <div class="addr">5710 Bull Run Dr., Columbia, MO 65201</div>
+          <div class="phone">(888) 807-3687</div>
+        </div>
+        <div class="what">
+          <div class="modes"><span class="pill ftl">FTL</span><span class="equip">flatbed, step deck, RGN</span></div>
+          <p class="commodity">rental fleet moving between branches and out to large jobsites (888-80-RENTS)</p>
+          <p class="near"><span class="lbl">Within 100 mi</span> Grain Belt Express (HVDC) <b>~30 mi</b></p>
+        </div>
+      </li>
+      <li class="lead" data-lead="{&quot;n&quot;: &quot;Sunstate Equipment&quot;, &quot;p&quot;: &quot;(602) 275-2398&quot;, &quot;a&quot;: &quot;5552 E. Washington St., Phoenix, AZ 85034&quot;, &quot;c&quot;: &quot;FTL (flatbed, step deck, RGN): rental fleet moving between branches and out to large jobsites (aerial, earthmoving, trench safety)&quot;, &quot;u&quot;: &quot;https://www.google.com/search?q=Sunstate+Equipment+5552+E.+Washington+St.%2C+Phoenix%2C+AZ+85034&quot;}" data-search="sunstate equipment 5552 e. washington st., phoenix, az 85034 ftl (flatbed, step deck, rgn): rental fleet moving between branches and out to large jobsites (aerial, earthmoving, trench safety)" data-mode="ftl">
+        <fieldset class="tags" data-key="b59-sunstate-equipment"><legend class="sr">Status of Sunstate Equipment</legend><label class="tg new"><input type="checkbox" value="new"><span>New</span></label><label class="tg active"><input type="checkbox" value="active"><span>Active</span></label><label class="tg inactive"><input type="checkbox" value="inactive"><span>Inactive</span></label><label class="tg deleted"><input type="checkbox" value="deleted"><span>Deleted</span></label><label class="tg customer"><input type="checkbox" value="customer"><span>Customer</span></label><label class="tg na"><input type="checkbox" value="na"><span>FT/OOB/other</span></label></fieldset>
+        <div class="who">
+          <div class="nameline">
+            <button type="button" class="copy" id="copy-b59-4" aria-label="Copy Sunstate Equipment">Copy</button>
+            <a class="name" href="https://www.google.com/search?q=Sunstate+Equipment+5552+E.+Washington+St.%2C+Phoenix%2C+AZ+85034" target="_blank" rel="noopener">Sunstate Equipment<span class="ext" aria-hidden="true">↗</span></a>
+          </div>
+          <div class="addr">5552 E. Washington St., Phoenix, AZ 85034</div>
+          <div class="phone">(602) 275-2398</div>
+        </div>
+        <div class="what">
+          <div class="modes"><span class="pill ftl">FTL</span><span class="equip">flatbed, step deck, RGN</span><a class="pill fleet" href="https://www.forconstructionpros.com/rental/article/12020088/sunstate-equipment-continues-growth-utilizes-fleet-of-kenworths-to-deliver-heavy-equipment" target="_blank" rel="noopener" title="Evidence this company runs its own trucks">Own fleet ↗</a></div>
+          <p class="commodity">rental fleet moving between branches and out to large jobsites (aerial, earthmoving, trench safety)</p>
+          <p class="near"><span class="multi">2 projects within 100 mi</span> PHX01 campus (Prime Data Centers, Avondale, AZ) <b>~20 mi</b>; SunZia (HVDC) <b>~40 mi</b></p>
+        </div>
+      </li>
+      <li class="lead" data-lead="{&quot;n&quot;: &quot;WillScot&quot;, &quot;p&quot;: &quot;(480) 894-6311&quot;, &quot;a&quot;: &quot;4646 E. Van Buren St., Suite 400, Phoenix, AZ 85008&quot;, &quot;c&quot;: &quot;FTL (flatbed, oversize): mobile offices, modular site buildings and storage containers for jobsites (rental and sales; includes Mobile Mini)&quot;, &quot;u&quot;: &quot;https://www.google.com/search?q=WillScot+4646+E.+Van+Buren+St.%2C+Suite+400%2C+Phoenix%2C+AZ+85008&quot;}" data-search="willscot 4646 e. van buren st., suite 400, phoenix, az 85008 ftl (flatbed, oversize): mobile offices, modular site buildings and storage containers for jobsites (rental and sales; includes mobile mini)" data-mode="ftl">
+        <fieldset class="tags" data-key="b59-willscot"><legend class="sr">Status of WillScot</legend><label class="tg new"><input type="checkbox" value="new"><span>New</span></label><label class="tg active"><input type="checkbox" value="active"><span>Active</span></label><label class="tg inactive"><input type="checkbox" value="inactive"><span>Inactive</span></label><label class="tg deleted"><input type="checkbox" value="deleted"><span>Deleted</span></label><label class="tg customer"><input type="checkbox" value="customer"><span>Customer</span></label><label class="tg na"><input type="checkbox" value="na"><span>FT/OOB/other</span></label></fieldset>
+        <div class="who">
+          <div class="nameline">
+            <button type="button" class="copy" id="copy-b59-5" aria-label="Copy WillScot">Copy</button>
+            <a class="name" href="https://www.google.com/search?q=WillScot+4646+E.+Van+Buren+St.%2C+Suite+400%2C+Phoenix%2C+AZ+85008" target="_blank" rel="noopener">WillScot<span class="ext" aria-hidden="true">↗</span></a>
+          </div>
+          <div class="addr">4646 E. Van Buren St., Suite 400, Phoenix, AZ 85008</div>
+          <div class="phone">(480) 894-6311</div>
+        </div>
+        <div class="what">
+          <div class="modes"><span class="pill ftl">FTL</span><span class="equip">flatbed, oversize</span></div>
+          <p class="commodity">mobile offices, modular site buildings and storage containers for jobsites (rental and sales; includes Mobile Mini)</p>
+          <p class="near"><span class="multi">2 projects within 100 mi</span> PHX01 campus (Prime Data Centers, Avondale, AZ) <b>~20 mi</b>; SunZia (HVDC) <b>~50 mi</b></p>
+        </div>
+      </li>
+      <li class="lead" data-lead="{&quot;n&quot;: &quot;Aggreko&quot;, &quot;p&quot;: &quot;(713) 512-6700&quot;, &quot;a&quot;: &quot;3732 Magnolia St., Pearland, TX 77584&quot;, &quot;c&quot;: &quot;FTL (flatbed, step deck): rental generators, load banks, chillers and temporary power and cooling equipment, including data center commissioning and backup power&quot;, &quot;u&quot;: &quot;https://www.google.com/search?q=Aggreko+3732+Magnolia+St.%2C+Pearland%2C+TX+77584&quot;}" data-search="aggreko 3732 magnolia st., pearland, tx 77584 ftl (flatbed, step deck): rental generators, load banks, chillers and temporary power and cooling equipment, including data center commissioning and backup power" data-mode="ftl">
+        <fieldset class="tags" data-key="b59-aggreko"><legend class="sr">Status of Aggreko</legend><label class="tg new"><input type="checkbox" value="new"><span>New</span></label><label class="tg active"><input type="checkbox" value="active"><span>Active</span></label><label class="tg inactive"><input type="checkbox" value="inactive"><span>Inactive</span></label><label class="tg deleted"><input type="checkbox" value="deleted"><span>Deleted</span></label><label class="tg customer"><input type="checkbox" value="customer"><span>Customer</span></label><label class="tg na"><input type="checkbox" value="na"><span>FT/OOB/other</span></label></fieldset>
+        <div class="who">
+          <div class="nameline">
+            <button type="button" class="copy" id="copy-b59-6" aria-label="Copy Aggreko">Copy</button>
+            <a class="name" href="https://www.google.com/search?q=Aggreko+3732+Magnolia+St.%2C+Pearland%2C+TX+77584" target="_blank" rel="noopener">Aggreko<span class="ext" aria-hidden="true">↗</span></a>
+          </div>
+          <div class="addr">3732 Magnolia St., Pearland, TX 77584</div>
+          <div class="phone">(713) 512-6700</div>
+        </div>
+        <div class="what">
+          <div class="modes"><span class="pill ftl">FTL</span><span class="equip">flatbed, step deck</span></div>
+          <p class="commodity">rental generators, load banks, chillers and temporary power and cooling equipment, including data center commissioning and backup power</p>
+          <p class="near"><span class="lbl">Nearest</span> Arbok (Owner listed as an individual, Rockdale, TX) <b>~120 mi</b>; Texas 765 kV backbone, southern leg <b>~210 mi</b></p>
+        </div>
+      </li>
+      <li class="lead" data-lead="{&quot;n&quot;: &quot;Carter Machinery (Carter CAT)&quot;, &quot;p&quot;: &quot;(800) 768-4200&quot;, &quot;a&quot;: &quot;Salem, VA 24153 (PO Box 3096)&quot;, &quot;c&quot;: &quot;FTL (flatbed, step deck, RGN): new, used and rental Cat machines, generators and parts moving between branches and to jobsites (Virginia, Maryland, Delaware and West Virginia; includes the former Alban CAT)&quot;, &quot;u&quot;: &quot;https://www.google.com/search?q=Carter+Machinery+%28Carter+CAT%29+Salem%2C+VA+24153+%28PO+Box+3096%29&quot;}" data-search="carter machinery (carter cat) salem, va 24153 (po box 3096) ftl (flatbed, step deck, rgn): new, used and rental cat machines, generators and parts moving between branches and to jobsites (virginia, maryland, delaware and west virginia; includes the former alban cat)" data-mode="ftl">
+        <fieldset class="tags" data-key="b59-carter-machinery-carter-cat"><legend class="sr">Status of Carter Machinery (Carter CAT)</legend><label class="tg new"><input type="checkbox" value="new"><span>New</span></label><label class="tg active"><input type="checkbox" value="active"><span>Active</span></label><label class="tg inactive"><input type="checkbox" value="inactive"><span>Inactive</span></label><label class="tg deleted"><input type="checkbox" value="deleted"><span>Deleted</span></label><label class="tg customer"><input type="checkbox" value="customer"><span>Customer</span></label><label class="tg na"><input type="checkbox" value="na"><span>FT/OOB/other</span></label></fieldset>
+        <div class="who">
+          <div class="nameline">
+            <button type="button" class="copy" id="copy-b59-7" aria-label="Copy Carter Machinery (Carter CAT)">Copy</button>
+            <a class="name" href="https://www.google.com/search?q=Carter+Machinery+%28Carter+CAT%29+Salem%2C+VA+24153+%28PO+Box+3096%29" target="_blank" rel="noopener">Carter Machinery (Carter CAT)<span class="ext" aria-hidden="true">↗</span></a>
+          </div>
+          <div class="addr">Salem, VA 24153 (PO Box 3096)</div>
+          <div class="phone">(800) 768-4200</div>
+        </div>
+        <div class="what">
+          <div class="modes"><span class="pill ftl">FTL</span><span class="equip">flatbed, step deck, RGN</span></div>
+          <p class="commodity">new, used and rental Cat machines, generators and parts moving between branches and to jobsites (Virginia, Maryland, Delaware and West Virginia; includes the former Alban CAT)</p>
+          <p class="near"><span class="lbl">Nearest</span> RCH-1 (Iron Mountain, Richmond, VA) <b>~150 mi</b>; PJM 765 kV (Valley Link and related) <b>~100 mi</b></p>
+        </div>
+      </li>
+      <li class="lead" data-lead="{&quot;n&quot;: &quot;Yancey Bros. Co. (Yancey CAT)&quot;, &quot;p&quot;: &quot;(770) 941-2300&quot;, &quot;a&quot;: &quot;330 Lee Industrial Blvd., Austell, GA 30168&quot;, &quot;c&quot;: &quot;FTL (flatbed, step deck, RGN): new, used and rental Cat machines, generators and parts moving between branches and to jobsites (Georgia)&quot;, &quot;u&quot;: &quot;https://www.google.com/search?q=Yancey+Bros.+Co.+%28Yancey+CAT%29+330+Lee+Industrial+Blvd.%2C+Austell%2C+GA+30168&quot;}" data-search="yancey bros. co. (yancey cat) 330 lee industrial blvd., austell, ga 30168 ftl (flatbed, step deck, rgn): new, used and rental cat machines, generators and parts moving between branches and to jobsites (georgia)" data-mode="ftl">
+        <fieldset class="tags" data-key="b59-yancey-bros-co-yancey-cat"><legend class="sr">Status of Yancey Bros. Co. (Yancey CAT)</legend><label class="tg new"><input type="checkbox" value="new"><span>New</span></label><label class="tg active"><input type="checkbox" value="active"><span>Active</span></label><label class="tg inactive"><input type="checkbox" value="inactive"><span>Inactive</span></label><label class="tg deleted"><input type="checkbox" value="deleted"><span>Deleted</span></label><label class="tg customer"><input type="checkbox" value="customer"><span>Customer</span></label><label class="tg na"><input type="checkbox" value="na"><span>FT/OOB/other</span></label></fieldset>
+        <div class="who">
+          <div class="nameline">
+            <button type="button" class="copy" id="copy-b59-8" aria-label="Copy Yancey Bros. Co. (Yancey CAT)">Copy</button>
+            <a class="name" href="https://www.google.com/search?q=Yancey+Bros.+Co.+%28Yancey+CAT%29+330+Lee+Industrial+Blvd.%2C+Austell%2C+GA+30168" target="_blank" rel="noopener">Yancey Bros. Co. (Yancey CAT)<span class="ext" aria-hidden="true">↗</span></a>
+          </div>
+          <div class="addr">330 Lee Industrial Blvd., Austell, GA 30168</div>
+          <div class="phone">(770) 941-2300</div>
+        </div>
+        <div class="what">
+          <div class="modes"><span class="pill ftl">FTL</span><span class="equip">flatbed, step deck, RGN</span></div>
+          <p class="commodity">new, used and rental Cat machines, generators and parts moving between branches and to jobsites (Georgia)</p>
+          <p class="near"><span class="lbl">Nearest</span> Columbiana data center (Digi Power X, Columbiana, AL) <b>~120 mi</b>; PJM 765 kV (Valley Link and related) <b>~360 mi</b></p>
+        </div>
+      </li>
+      <li class="lead" data-lead="{&quot;n&quot;: &quot;MacAllister Machinery (MacAllister CAT)&quot;, &quot;p&quot;: &quot;(317) 545-2151&quot;, &quot;a&quot;: &quot;6300 Southeastern Ave., Indianapolis, IN 46203&quot;, &quot;c&quot;: &quot;FTL (flatbed, step deck, RGN): new, used and rental Cat machines, generators and parts moving between branches and to jobsites (Indiana and Michigan; includes the former Michigan CAT)&quot;, &quot;u&quot;: &quot;https://www.google.com/search?q=MacAllister+Machinery+%28MacAllister+CAT%29+6300+Southeastern+Ave.%2C+Indianapolis%2C+IN+46203&quot;}" data-search="macallister machinery (macallister cat) 6300 southeastern ave., indianapolis, in 46203 ftl (flatbed, step deck, rgn): new, used and rental cat machines, generators and parts moving between branches and to jobsites (indiana and michigan; includes the former michigan cat)" data-mode="ftl">
+        <fieldset class="tags" data-key="b59-macallister-machinery-macallister-cat"><legend class="sr">Status of MacAllister Machinery (MacAllister CAT)</legend><label class="tg new"><input type="checkbox" value="new"><span>New</span></label><label class="tg active"><input type="checkbox" value="active"><span>Active</span></label><label class="tg inactive"><input type="checkbox" value="inactive"><span>Inactive</span></label><label class="tg deleted"><input type="checkbox" value="deleted"><span>Deleted</span></label><label class="tg customer"><input type="checkbox" value="customer"><span>Customer</span></label><label class="tg na"><input type="checkbox" value="na"><span>FT/OOB/other</span></label></fieldset>
+        <div class="who">
+          <div class="nameline">
+            <button type="button" class="copy" id="copy-b59-9" aria-label="Copy MacAllister Machinery (MacAllister CAT)">Copy</button>
+            <a class="name" href="https://www.google.com/search?q=MacAllister+Machinery+%28MacAllister+CAT%29+6300+Southeastern+Ave.%2C+Indianapolis%2C+IN+46203" target="_blank" rel="noopener">MacAllister Machinery (MacAllister CAT)<span class="ext" aria-hidden="true">↗</span></a>
+          </div>
+          <div class="addr">6300 Southeastern Ave., Indianapolis, IN 46203</div>
+          <div class="phone">(317) 545-2151</div>
+        </div>
+        <div class="what">
+          <div class="modes"><span class="pill ftl">FTL</span><span class="equip">flatbed, step deck, RGN</span></div>
+          <p class="commodity">new, used and rental Cat machines, generators and parts moving between branches and to jobsites (Indiana and Michigan; includes the former Michigan CAT)</p>
+          <p class="near"><span class="multi">3 projects within 100 mi</span> Lebanon campus (Meta, Lebanon, IN) <b>~30 mi</b>; MISO Tranche 2.1 765 kV backbone <b>~50 mi</b>; Grain Belt Express (HVDC) <b>~80 mi</b></p>
+        </div>
+      </li>
+      <li class="lead" data-lead="{&quot;n&quot;: &quot;HOLT CAT&quot;, &quot;p&quot;: &quot;(210) 648-1111&quot;, &quot;a&quot;: &quot;5665 SE Loop 410, San Antonio, TX 78222&quot;, &quot;c&quot;: &quot;FTL (flatbed, step deck, RGN): new, used and rental Cat machines, generators and parts moving between branches and to jobsites (Central, South and North Texas; also runs an equipment hauling service)&quot;, &quot;u&quot;: &quot;https://www.google.com/search?q=HOLT+CAT+5665+SE+Loop+410%2C+San+Antonio%2C+TX+78222&quot;}" data-search="holt cat 5665 se loop 410, san antonio, tx 78222 ftl (flatbed, step deck, rgn): new, used and rental cat machines, generators and parts moving between branches and to jobsites (central, south and north texas; also runs an equipment hauling service)" data-mode="ftl">
+        <fieldset class="tags" data-key="b59-holt-cat"><legend class="sr">Status of HOLT CAT</legend><label class="tg new"><input type="checkbox" value="new"><span>New</span></label><label class="tg active"><input type="checkbox" value="active"><span>Active</span></label><label class="tg inactive"><input type="checkbox" value="inactive"><span>Inactive</span></label><label class="tg deleted"><input type="checkbox" value="deleted"><span>Deleted</span></label><label class="tg customer"><input type="checkbox" value="customer"><span>Customer</span></label><label class="tg na"><input type="checkbox" value="na"><span>FT/OOB/other</span></label></fieldset>
+        <div class="who">
+          <div class="nameline">
+            <button type="button" class="copy" id="copy-b59-10" aria-label="Copy HOLT CAT">Copy</button>
+            <a class="name" href="https://www.google.com/search?q=HOLT+CAT+5665+SE+Loop+410%2C+San+Antonio%2C+TX+78222" target="_blank" rel="noopener">HOLT CAT<span class="ext" aria-hidden="true">↗</span></a>
+          </div>
+          <div class="addr">5665 SE Loop 410, San Antonio, TX 78222</div>
+          <div class="phone">(210) 648-1111</div>
+        </div>
+        <div class="what">
+          <div class="modes"><span class="pill ftl">FTL</span><span class="equip">flatbed, step deck, RGN</span></div>
+          <p class="commodity">new, used and rental Cat machines, generators and parts moving between branches and to jobsites (Central, South and North Texas; also runs an equipment hauling service)</p>
+          <p class="near"><span class="multi">3 projects within 100 mi</span> CloudBurst flagship (CloudBurst, San Marcos, TX) <b>~50 mi</b>; Texas 765 kV backbone, southern leg <b>~50 mi</b>; EDCAUS12 (Burr Computer Environment (owner on filing), Cedar Creek, TX) <b>~70 mi</b></p>
+        </div>
+      </li>
+      <li class="lead" data-lead="{&quot;n&quot;: &quot;Warren CAT&quot;, &quot;p&quot;: &quot;(405) 947-6771&quot;, &quot;a&quot;: &quot;4501 W. Reno Ave., Oklahoma City, OK 73127&quot;, &quot;c&quot;: &quot;FTL (flatbed, step deck, RGN): new, used and rental Cat machines, generators and parts moving between branches and to jobsites (Oklahoma and West Texas)&quot;, &quot;u&quot;: &quot;https://www.google.com/search?q=Warren+CAT+4501+W.+Reno+Ave.%2C+Oklahoma+City%2C+OK+73127&quot;}" data-search="warren cat 4501 w. reno ave., oklahoma city, ok 73127 ftl (flatbed, step deck, rgn): new, used and rental cat machines, generators and parts moving between branches and to jobsites (oklahoma and west texas)" data-mode="ftl">
+        <fieldset class="tags" data-key="b59-warren-cat"><legend class="sr">Status of Warren CAT</legend><label class="tg new"><input type="checkbox" value="new"><span>New</span></label><label class="tg active"><input type="checkbox" value="active"><span>Active</span></label><label class="tg inactive"><input type="checkbox" value="inactive"><span>Inactive</span></label><label class="tg deleted"><input type="checkbox" value="deleted"><span>Deleted</span></label><label class="tg customer"><input type="checkbox" value="customer"><span>Customer</span></label><label class="tg na"><input type="checkbox" value="na"><span>FT/OOB/other</span></label></fieldset>
+        <div class="who">
+          <div class="nameline">
+            <button type="button" class="copy" id="copy-b59-11" aria-label="Copy Warren CAT">Copy</button>
+            <a class="name" href="https://www.google.com/search?q=Warren+CAT+4501+W.+Reno+Ave.%2C+Oklahoma+City%2C+OK+73127" target="_blank" rel="noopener">Warren CAT<span class="ext" aria-hidden="true">↗</span></a>
+          </div>
+          <div class="addr">4501 W. Reno Ave., Oklahoma City, OK 73127</div>
+          <div class="phone">(405) 947-6771</div>
+        </div>
+        <div class="what">
+          <div class="modes"><span class="pill ftl">FTL</span><span class="equip">flatbed, step deck, RGN</span></div>
+          <p class="commodity">new, used and rental Cat machines, generators and parts moving between branches and to jobsites (Oklahoma and West Texas)</p>
+          <p class="near"><span class="lbl">Nearest</span> Project Anthem (Meta, Tulsa, OK) <b>~100 mi</b>; SPP 765 kV (Panhandle to Kansas) <b>~110 mi</b></p>
+        </div>
+      </li>
+      <li class="lead" data-lead="{&quot;n&quot;: &quot;Ohio CAT&quot;, &quot;p&quot;: &quot;(440) 658-2000&quot;, &quot;a&quot;: &quot;3993 E. Royalton Rd., Broadview Heights, OH 44147&quot;, &quot;c&quot;: &quot;FTL (flatbed, step deck, RGN): new, used and rental Cat machines, generators and parts moving between branches and to jobsites (Ohio)&quot;, &quot;u&quot;: &quot;https://www.google.com/search?q=Ohio+CAT+3993+E.+Royalton+Rd.%2C+Broadview+Heights%2C+OH+44147&quot;}" data-search="ohio cat 3993 e. royalton rd., broadview heights, oh 44147 ftl (flatbed, step deck, rgn): new, used and rental cat machines, generators and parts moving between branches and to jobsites (ohio)" data-mode="ftl">
+        <fieldset class="tags" data-key="b59-ohio-cat"><legend class="sr">Status of Ohio CAT</legend><label class="tg new"><input type="checkbox" value="new"><span>New</span></label><label class="tg active"><input type="checkbox" value="active"><span>Active</span></label><label class="tg inactive"><input type="checkbox" value="inactive"><span>Inactive</span></label><label class="tg deleted"><input type="checkbox" value="deleted"><span>Deleted</span></label><label class="tg customer"><input type="checkbox" value="customer"><span>Customer</span></label><label class="tg na"><input type="checkbox" value="na"><span>FT/OOB/other</span></label></fieldset>
+        <div class="who">
+          <div class="nameline">
+            <button type="button" class="copy" id="copy-b59-12" aria-label="Copy Ohio CAT">Copy</button>
+            <a class="name" href="https://www.google.com/search?q=Ohio+CAT+3993+E.+Royalton+Rd.%2C+Broadview+Heights%2C+OH+44147" target="_blank" rel="noopener">Ohio CAT<span class="ext" aria-hidden="true">↗</span></a>
+          </div>
+          <div class="addr">3993 E. Royalton Rd., Broadview Heights, OH 44147</div>
+          <div class="phone">(440) 658-2000</div>
+        </div>
+        <div class="what">
+          <div class="modes"><span class="pill ftl">FTL</span><span class="equip">flatbed, step deck, RGN</span></div>
+          <p class="commodity">new, used and rental Cat machines, generators and parts moving between branches and to jobsites (Ohio)</p>
+          <p class="near"><span class="multi">2 projects within 100 mi</span> Project Phoenix (PIT-01) (Aligned, Shippingport, PA) <b>~80 mi</b>; COL-1 (CyrusOne, Johnstown / New Albany, OH) <b>~100 mi</b></p>
+        </div>
+      </li>
+      <li class="lead" data-lead="{&quot;n&quot;: &quot;Cleveland Brothers (Cleveland Brothers CAT)&quot;, &quot;p&quot;: &quot;(724) 327-1300&quot;, &quot;a&quot;: &quot;4565 William Penn Hwy., Murrysville, PA 15668&quot;, &quot;c&quot;: &quot;FTL (flatbed, step deck, RGN): new, used and rental Cat machines, generators and parts moving between branches and to jobsites (Pennsylvania)&quot;, &quot;u&quot;: &quot;https://www.google.com/search?q=Cleveland+Brothers+%28Cleveland+Brothers+CAT%29+4565+William+Penn+Hwy.%2C+Murrysville%2C+PA+15668&quot;}" data-search="cleveland brothers (cleveland brothers cat) 4565 william penn hwy., murrysville, pa 15668 ftl (flatbed, step deck, rgn): new, used and rental cat machines, generators and parts moving between branches and to jobsites (pennsylvania)" data-mode="ftl">
+        <fieldset class="tags" data-key="b59-cleveland-brothers-cleveland-brothers-cat"><legend class="sr">Status of Cleveland Brothers (Cleveland Brothers CAT)</legend><label class="tg new"><input type="checkbox" value="new"><span>New</span></label><label class="tg active"><input type="checkbox" value="active"><span>Active</span></label><label class="tg inactive"><input type="checkbox" value="inactive"><span>Inactive</span></label><label class="tg deleted"><input type="checkbox" value="deleted"><span>Deleted</span></label><label class="tg customer"><input type="checkbox" value="customer"><span>Customer</span></label><label class="tg na"><input type="checkbox" value="na"><span>FT/OOB/other</span></label></fieldset>
+        <div class="who">
+          <div class="nameline">
+            <button type="button" class="copy" id="copy-b59-13" aria-label="Copy Cleveland Brothers (Cleveland Brothers CAT)">Copy</button>
+            <a class="name" href="https://www.google.com/search?q=Cleveland+Brothers+%28Cleveland+Brothers+CAT%29+4565+William+Penn+Hwy.%2C+Murrysville%2C+PA+15668" target="_blank" rel="noopener">Cleveland Brothers (Cleveland Brothers CAT)<span class="ext" aria-hidden="true">↗</span></a>
+          </div>
+          <div class="addr">4565 William Penn Hwy., Murrysville, PA 15668</div>
+          <div class="phone">(724) 327-1300</div>
+        </div>
+        <div class="what">
+          <div class="modes"><span class="pill ftl">FTL</span><span class="equip">flatbed, step deck, RGN</span></div>
+          <p class="commodity">new, used and rental Cat machines, generators and parts moving between branches and to jobsites (Pennsylvania)</p>
+          <p class="near"><span class="multi">2 projects within 100 mi</span> Project Phoenix (PIT-01) (Aligned, Shippingport, PA) <b>~40 mi</b>; PJM 765 kV (Valley Link and related) <b>~90 mi</b></p>
+        </div>
+      </li>
+      <li class="lead" data-lead="{&quot;n&quot;: &quot;Blanchard Machinery (Blanchard CAT)&quot;, &quot;p&quot;: &quot;(803) 754-7368&quot;, &quot;a&quot;: &quot;711 Buckner Rd., Columbia, SC 29203&quot;, &quot;c&quot;: &quot;FTL (flatbed, step deck, RGN): new, used and rental Cat machines, generators and parts moving between branches and to jobsites (South Carolina)&quot;, &quot;u&quot;: &quot;https://www.google.com/search?q=Blanchard+Machinery+%28Blanchard+CAT%29+711+Buckner+Rd.%2C+Columbia%2C+SC+29203&quot;}" data-search="blanchard machinery (blanchard cat) 711 buckner rd., columbia, sc 29203 ftl (flatbed, step deck, rgn): new, used and rental cat machines, generators and parts moving between branches and to jobsites (south carolina)" data-mode="ftl">
+        <fieldset class="tags" data-key="b59-blanchard-machinery-blanchard-cat"><legend class="sr">Status of Blanchard Machinery (Blanchard CAT)</legend><label class="tg new"><input type="checkbox" value="new"><span>New</span></label><label class="tg active"><input type="checkbox" value="active"><span>Active</span></label><label class="tg inactive"><input type="checkbox" value="inactive"><span>Inactive</span></label><label class="tg deleted"><input type="checkbox" value="deleted"><span>Deleted</span></label><label class="tg customer"><input type="checkbox" value="customer"><span>Customer</span></label><label class="tg na"><input type="checkbox" value="na"><span>FT/OOB/other</span></label></fieldset>
+        <div class="who">
+          <div class="nameline">
+            <button type="button" class="copy" id="copy-b59-14" aria-label="Copy Blanchard Machinery (Blanchard CAT)">Copy</button>
+            <a class="name" href="https://www.google.com/search?q=Blanchard+Machinery+%28Blanchard+CAT%29+711+Buckner+Rd.%2C+Columbia%2C+SC+29203" target="_blank" rel="noopener">Blanchard Machinery (Blanchard CAT)<span class="ext" aria-hidden="true">↗</span></a>
+          </div>
+          <div class="addr">711 Buckner Rd., Columbia, SC 29203</div>
+          <div class="phone">(803) 754-7368</div>
+        </div>
+        <div class="what">
+          <div class="modes"><span class="pill ftl">FTL</span><span class="equip">flatbed, step deck, RGN</span></div>
+          <p class="commodity">new, used and rental Cat machines, generators and parts moving between branches and to jobsites (South Carolina)</p>
+          <p class="near"><span class="lbl">Nearest</span> RCH-1 (Iron Mountain, Richmond, VA) <b>~320 mi</b>; PJM 765 kV (Valley Link and related) <b>~300 mi</b></p>
+        </div>
+      </li>
+      <li class="lead" data-lead="{&quot;n&quot;: &quot;Thompson Machinery (Thompson CAT)&quot;, &quot;p&quot;: &quot;(615) 256-2424&quot;, &quot;a&quot;: &quot;1245 Bridgestone Pkwy., La Vergne, TN 37086&quot;, &quot;c&quot;: &quot;FTL (flatbed, step deck, RGN): new, used and rental Cat machines, generators and parts moving between branches and to jobsites (Middle and West Tennessee, North Mississippi)&quot;, &quot;u&quot;: &quot;https://www.google.com/search?q=Thompson+Machinery+%28Thompson+CAT%29+1245+Bridgestone+Pkwy.%2C+La+Vergne%2C+TN+37086&quot;}" data-search="thompson machinery (thompson cat) 1245 bridgestone pkwy., la vergne, tn 37086 ftl (flatbed, step deck, rgn): new, used and rental cat machines, generators and parts moving between branches and to jobsites (middle and west tennessee, north mississippi)" data-mode="ftl">
+        <fieldset class="tags" data-key="b59-thompson-machinery-thompson-cat"><legend class="sr">Status of Thompson Machinery (Thompson CAT)</legend><label class="tg new"><input type="checkbox" value="new"><span>New</span></label><label class="tg active"><input type="checkbox" value="active"><span>Active</span></label><label class="tg inactive"><input type="checkbox" value="inactive"><span>Inactive</span></label><label class="tg deleted"><input type="checkbox" value="deleted"><span>Deleted</span></label><label class="tg customer"><input type="checkbox" value="customer"><span>Customer</span></label><label class="tg na"><input type="checkbox" value="na"><span>FT/OOB/other</span></label></fieldset>
+        <div class="who">
+          <div class="nameline">
+            <button type="button" class="copy" id="copy-b59-15" aria-label="Copy Thompson Machinery (Thompson CAT)">Copy</button>
+            <a class="name" href="https://www.google.com/search?q=Thompson+Machinery+%28Thompson+CAT%29+1245+Bridgestone+Pkwy.%2C+La+Vergne%2C+TN+37086" target="_blank" rel="noopener">Thompson Machinery (Thompson CAT)<span class="ext" aria-hidden="true">↗</span></a>
+          </div>
+          <div class="addr">1245 Bridgestone Pkwy., La Vergne, TN 37086</div>
+          <div class="phone">(615) 256-2424</div>
+        </div>
+        <div class="what">
+          <div class="modes"><span class="pill ftl">FTL</span><span class="equip">flatbed, step deck, RGN</span></div>
+          <p class="commodity">new, used and rental Cat machines, generators and parts moving between branches and to jobsites (Middle and West Tennessee, North Mississippi)</p>
+          <p class="near"><span class="lbl">Nearest</span> Columbiana data center (Digi Power X, Columbiana, AL) <b>~200 mi</b>; Grain Belt Express (HVDC) <b>~220 mi</b></p>
+        </div>
+      </li>
+      <li class="lead" data-lead="{&quot;n&quot;: &quot;Puckett Machinery (Puckett CAT)&quot;, &quot;p&quot;: &quot;(601) 969-6000&quot;, &quot;a&quot;: &quot;100 Caterpillar Dr., Flowood, MS 39232&quot;, &quot;c&quot;: &quot;FTL (flatbed, step deck, RGN): new, used and rental Cat machines, generators and parts moving between branches and to jobsites (Mississippi)&quot;, &quot;u&quot;: &quot;https://www.google.com/search?q=Puckett+Machinery+%28Puckett+CAT%29+100+Caterpillar+Dr.%2C+Flowood%2C+MS+39232&quot;}" data-search="puckett machinery (puckett cat) 100 caterpillar dr., flowood, ms 39232 ftl (flatbed, step deck, rgn): new, used and rental cat machines, generators and parts moving between branches and to jobsites (mississippi)" data-mode="ftl">
+        <fieldset class="tags" data-key="b59-puckett-machinery-puckett-cat"><legend class="sr">Status of Puckett Machinery (Puckett CAT)</legend><label class="tg new"><input type="checkbox" value="new"><span>New</span></label><label class="tg active"><input type="checkbox" value="active"><span>Active</span></label><label class="tg inactive"><input type="checkbox" value="inactive"><span>Inactive</span></label><label class="tg deleted"><input type="checkbox" value="deleted"><span>Deleted</span></label><label class="tg customer"><input type="checkbox" value="customer"><span>Customer</span></label><label class="tg na"><input type="checkbox" value="na"><span>FT/OOB/other</span></label></fieldset>
+        <div class="who">
+          <div class="nameline">
+            <button type="button" class="copy" id="copy-b59-16" aria-label="Copy Puckett Machinery (Puckett CAT)">Copy</button>
+            <a class="name" href="https://www.google.com/search?q=Puckett+Machinery+%28Puckett+CAT%29+100+Caterpillar+Dr.%2C+Flowood%2C+MS+39232" target="_blank" rel="noopener">Puckett Machinery (Puckett CAT)<span class="ext" aria-hidden="true">↗</span></a>
+          </div>
+          <div class="addr">100 Caterpillar Dr., Flowood, MS 39232</div>
+          <div class="phone">(601) 969-6000</div>
+        </div>
+        <div class="what">
+          <div class="modes"><span class="pill ftl">FTL</span><span class="equip">flatbed, step deck, RGN</span></div>
+          <p class="commodity">new, used and rental Cat machines, generators and parts moving between branches and to jobsites (Mississippi)</p>
+          <p class="near"><span class="multi">2 projects within 100 mi</span> Taurus Data Center Hub (AVAIO Digital, Brandon, MS) <b>~8 mi</b>; Hyperion (Meta, Richland Parish, LA) <b>~100 mi</b></p>
+        </div>
+      </li>
+      <li class="lead" data-lead="{&quot;n&quot;: &quot;Boyd CAT&quot;, &quot;p&quot;: &quot;(502) 912-6888&quot;, &quot;a&quot;: &quot;4401 Boyd Way, Louisville, KY 40211&quot;, &quot;c&quot;: &quot;FTL (flatbed, step deck, RGN): new, used and rental Cat machines, generators and parts moving between branches and to jobsites (Kentucky and southern Indiana)&quot;, &quot;u&quot;: &quot;https://www.google.com/search?q=Boyd+CAT+4401+Boyd+Way%2C+Louisville%2C+KY+40211&quot;}" data-search="boyd cat 4401 boyd way, louisville, ky 40211 ftl (flatbed, step deck, rgn): new, used and rental cat machines, generators and parts moving between branches and to jobsites (kentucky and southern indiana)" data-mode="ftl">
+        <fieldset class="tags" data-key="b59-boyd-cat"><legend class="sr">Status of Boyd CAT</legend><label class="tg new"><input type="checkbox" value="new"><span>New</span></label><label class="tg active"><input type="checkbox" value="active"><span>Active</span></label><label class="tg inactive"><input type="checkbox" value="inactive"><span>Inactive</span></label><label class="tg deleted"><input type="checkbox" value="deleted"><span>Deleted</span></label><label class="tg customer"><input type="checkbox" value="customer"><span>Customer</span></label><label class="tg na"><input type="checkbox" value="na"><span>FT/OOB/other</span></label></fieldset>
+        <div class="who">
+          <div class="nameline">
+            <button type="button" class="copy" id="copy-b59-17" aria-label="Copy Boyd CAT">Copy</button>
+            <a class="name" href="https://www.google.com/search?q=Boyd+CAT+4401+Boyd+Way%2C+Louisville%2C+KY+40211" target="_blank" rel="noopener">Boyd CAT<span class="ext" aria-hidden="true">↗</span></a>
+          </div>
+          <div class="addr">4401 Boyd Way, Louisville, KY 40211</div>
+          <div class="phone">(502) 912-6888</div>
+        </div>
+        <div class="what">
+          <div class="modes"><span class="pill ftl">FTL</span><span class="equip">flatbed, step deck, RGN</span></div>
+          <p class="commodity">new, used and rental Cat machines, generators and parts moving between branches and to jobsites (Kentucky and southern Indiana)</p>
+          <p class="near"><span class="lbl">Nearest</span> Lebanon campus (Meta, Lebanon, IN) <b>~130 mi</b>; Grain Belt Express (HVDC) <b>~100 mi</b></p>
+        </div>
+      </li>
+      <li class="lead" data-lead="{&quot;n&quot;: &quot;Foley CAT&quot;, &quot;p&quot;: &quot;(732) 885-5555&quot;, &quot;a&quot;: &quot;833 Centennial Ave., Piscataway, NJ 08854&quot;, &quot;c&quot;: &quot;FTL (flatbed, step deck, RGN): new, used and rental Cat machines, generators and parts moving between branches and to jobsites (New Jersey, eastern Pennsylvania and Delaware)&quot;, &quot;u&quot;: &quot;https://www.google.com/search?q=Foley+CAT+833+Centennial+Ave.%2C+Piscataway%2C+NJ+08854&quot;}" data-search="foley cat 833 centennial ave., piscataway, nj 08854 ftl (flatbed, step deck, rgn): new, used and rental cat machines, generators and parts moving between branches and to jobsites (new jersey, eastern pennsylvania and delaware)" data-mode="ftl">
+        <fieldset class="tags" data-key="b59-foley-cat"><legend class="sr">Status of Foley CAT</legend><label class="tg new"><input type="checkbox" value="new"><span>New</span></label><label class="tg active"><input type="checkbox" value="active"><span>Active</span></label><label class="tg inactive"><input type="checkbox" value="inactive"><span>Inactive</span></label><label class="tg deleted"><input type="checkbox" value="deleted"><span>Deleted</span></label><label class="tg customer"><input type="checkbox" value="customer"><span>Customer</span></label><label class="tg na"><input type="checkbox" value="na"><span>FT/OOB/other</span></label></fieldset>
+        <div class="who">
+          <div class="nameline">
+            <button type="button" class="copy" id="copy-b59-18" aria-label="Copy Foley CAT">Copy</button>
+            <a class="name" href="https://www.google.com/search?q=Foley+CAT+833+Centennial+Ave.%2C+Piscataway%2C+NJ+08854" target="_blank" rel="noopener">Foley CAT<span class="ext" aria-hidden="true">↗</span></a>
+          </div>
+          <div class="addr">833 Centennial Ave., Piscataway, NJ 08854</div>
+          <div class="phone">(732) 885-5555</div>
+        </div>
+        <div class="what">
+          <div class="modes"><span class="pill ftl">FTL</span><span class="equip">flatbed, step deck, RGN</span></div>
+          <p class="commodity">new, used and rental Cat machines, generators and parts moving between branches and to jobsites (New Jersey, eastern Pennsylvania and Delaware)</p>
+          <p class="near"><span class="lbl">Within 100 mi</span> Champlain Hudson Power Express (HVDC) <b>~30 mi</b></p>
+        </div>
+      </li>
+      <li class="lead" data-lead="{&quot;n&quot;: &quot;Fabick CAT&quot;, &quot;p&quot;: &quot;(636) 343-5900&quot;, &quot;a&quot;: &quot;211 Fabricator Dr., Fenton, MO 63026&quot;, &quot;c&quot;: &quot;FTL (flatbed, step deck, RGN): new, used and rental Cat machines, generators and parts moving between branches and to jobsites (Missouri, Illinois and Wisconsin)&quot;, &quot;u&quot;: &quot;https://www.google.com/search?q=Fabick+CAT+211+Fabricator+Dr.%2C+Fenton%2C+MO+63026&quot;}" data-search="fabick cat 211 fabricator dr., fenton, mo 63026 ftl (flatbed, step deck, rgn): new, used and rental cat machines, generators and parts moving between branches and to jobsites (missouri, illinois and wisconsin)" data-mode="ftl">
+        <fieldset class="tags" data-key="b59-fabick-cat"><legend class="sr">Status of Fabick CAT</legend><label class="tg new"><input type="checkbox" value="new"><span>New</span></label><label class="tg active"><input type="checkbox" value="active"><span>Active</span></label><label class="tg inactive"><input type="checkbox" value="inactive"><span>Inactive</span></label><label class="tg deleted"><input type="checkbox" value="deleted"><span>Deleted</span></label><label class="tg customer"><input type="checkbox" value="customer"><span>Customer</span></label><label class="tg na"><input type="checkbox" value="na"><span>FT/OOB/other</span></label></fieldset>
+        <div class="who">
+          <div class="nameline">
+            <button type="button" class="copy" id="copy-b59-19" aria-label="Copy Fabick CAT">Copy</button>
+            <a class="name" href="https://www.google.com/search?q=Fabick+CAT+211+Fabricator+Dr.%2C+Fenton%2C+MO+63026" target="_blank" rel="noopener">Fabick CAT<span class="ext" aria-hidden="true">↗</span></a>
+          </div>
+          <div class="addr">211 Fabricator Dr., Fenton, MO 63026</div>
+          <div class="phone">(636) 343-5900</div>
+        </div>
+        <div class="what">
+          <div class="modes"><span class="pill ftl">FTL</span><span class="equip">flatbed, step deck, RGN</span></div>
+          <p class="commodity">new, used and rental Cat machines, generators and parts moving between branches and to jobsites (Missouri, Illinois and Wisconsin)</p>
+          <p class="near"><span class="lbl">Within 100 mi</span> Grain Belt Express (HVDC) <b>~60 mi</b></p>
+        </div>
+      </li>
+      <li class="lead" data-lead="{&quot;n&quot;: &quot;Altorfer CAT&quot;, &quot;p&quot;: &quot;(319) 364-9898&quot;, &quot;a&quot;: &quot;6605 6th St. SW, Cedar Rapids, IA 52404&quot;, &quot;c&quot;: &quot;FTL (flatbed, step deck, RGN): new, used and rental Cat machines, generators and parts moving between branches and to jobsites (Iowa and Illinois)&quot;, &quot;u&quot;: &quot;https://www.google.com/search?q=Altorfer+CAT+6605+6th+St.+SW%2C+Cedar+Rapids%2C+IA+52404&quot;}" data-search="altorfer cat 6605 6th st. sw, cedar rapids, ia 52404 ftl (flatbed, step deck, rgn): new, used and rental cat machines, generators and parts moving between branches and to jobsites (iowa and illinois)" data-mode="ftl">
+        <fieldset class="tags" data-key="b59-altorfer-cat"><legend class="sr">Status of Altorfer CAT</legend><label class="tg new"><input type="checkbox" value="new"><span>New</span></label><label class="tg active"><input type="checkbox" value="active"><span>Active</span></label><label class="tg inactive"><input type="checkbox" value="inactive"><span>Inactive</span></label><label class="tg deleted"><input type="checkbox" value="deleted"><span>Deleted</span></label><label class="tg customer"><input type="checkbox" value="customer"><span>Customer</span></label><label class="tg na"><input type="checkbox" value="na"><span>FT/OOB/other</span></label></fieldset>
+        <div class="who">
+          <div class="nameline">
+            <button type="button" class="copy" id="copy-b59-20" aria-label="Copy Altorfer CAT">Copy</button>
+            <a class="name" href="https://www.google.com/search?q=Altorfer+CAT+6605+6th+St.+SW%2C+Cedar+Rapids%2C+IA+52404" target="_blank" rel="noopener">Altorfer CAT<span class="ext" aria-hidden="true">↗</span></a>
+          </div>
+          <div class="addr">6605 6th St. SW, Cedar Rapids, IA 52404</div>
+          <div class="phone">(319) 364-9898</div>
+        </div>
+        <div class="what">
+          <div class="modes"><span class="pill ftl">FTL</span><span class="equip">flatbed, step deck, RGN</span></div>
+          <p class="commodity">new, used and rental Cat machines, generators and parts moving between branches and to jobsites (Iowa and Illinois)</p>
+          <p class="near"><span class="lbl">Within 100 mi</span> MISO Tranche 2.1 765 kV backbone <b>~14 mi</b></p>
+        </div>
+      </li>
+      <li class="lead" data-lead="{&quot;n&quot;: &quot;Butler Machinery (Butler CAT)&quot;, &quot;p&quot;: &quot;(701) 298-1700&quot;, &quot;a&quot;: &quot;3401 33rd St. SW, Fargo, ND 58104&quot;, &quot;c&quot;: &quot;FTL (flatbed, step deck, RGN): new, used and rental Cat machines, generators and parts moving between branches and to jobsites (North and South Dakota)&quot;, &quot;u&quot;: &quot;https://www.google.com/search?q=Butler+Machinery+%28Butler+CAT%29+3401+33rd+St.+SW%2C+Fargo%2C+ND+58104&quot;}" data-search="butler machinery (butler cat) 3401 33rd st. sw, fargo, nd 58104 ftl (flatbed, step deck, rgn): new, used and rental cat machines, generators and parts moving between branches and to jobsites (north and south dakota)" data-mode="ftl">
+        <fieldset class="tags" data-key="b59-butler-machinery-butler-cat"><legend class="sr">Status of Butler Machinery (Butler CAT)</legend><label class="tg new"><input type="checkbox" value="new"><span>New</span></label><label class="tg active"><input type="checkbox" value="active"><span>Active</span></label><label class="tg inactive"><input type="checkbox" value="inactive"><span>Inactive</span></label><label class="tg deleted"><input type="checkbox" value="deleted"><span>Deleted</span></label><label class="tg customer"><input type="checkbox" value="customer"><span>Customer</span></label><label class="tg na"><input type="checkbox" value="na"><span>FT/OOB/other</span></label></fieldset>
+        <div class="who">
+          <div class="nameline">
+            <button type="button" class="copy" id="copy-b59-21" aria-label="Copy Butler Machinery (Butler CAT)">Copy</button>
+            <a class="name" href="https://www.google.com/search?q=Butler+Machinery+%28Butler+CAT%29+3401+33rd+St.+SW%2C+Fargo%2C+ND+58104" target="_blank" rel="noopener">Butler Machinery (Butler CAT)<span class="ext" aria-hidden="true">↗</span></a>
+          </div>
+          <div class="addr">3401 33rd St. SW, Fargo, ND 58104</div>
+          <div class="phone">(701) 298-1700</div>
+        </div>
+        <div class="what">
+          <div class="modes"><span class="pill ftl">FTL</span><span class="equip">flatbed, step deck, RGN</span></div>
+          <p class="commodity">new, used and rental Cat machines, generators and parts moving between branches and to jobsites (North and South Dakota)</p>
+          <p class="near"><span class="lbl">Nearest</span> Lighthouse (Stargate WI) (Vantage for Oracle/OpenAI, Port Washington, WI) <b>~500 mi</b>; MISO Tranche 2.1 765 kV backbone <b>~110 mi</b></p>
+        </div>
+      </li>
+      <li class="lead" data-lead="{&quot;n&quot;: &quot;Empire Southwest (Empire CAT)&quot;, &quot;p&quot;: &quot;&quot;, &quot;a&quot;: &quot;1725 S. Country Club Dr., Mesa, AZ 85210&quot;, &quot;c&quot;: &quot;FTL (flatbed, step deck, RGN): new, used and rental Cat machines, generators and parts moving between branches and to jobsites (Arizona)&quot;, &quot;u&quot;: &quot;https://www.google.com/search?q=Empire+Southwest+%28Empire+CAT%29+1725+S.+Country+Club+Dr.%2C+Mesa%2C+AZ+85210&quot;}" data-search="empire southwest (empire cat) 1725 s. country club dr., mesa, az 85210 ftl (flatbed, step deck, rgn): new, used and rental cat machines, generators and parts moving between branches and to jobsites (arizona)" data-mode="ftl">
+        <fieldset class="tags" data-key="b59-empire-southwest-empire-cat"><legend class="sr">Status of Empire Southwest (Empire CAT)</legend><label class="tg new"><input type="checkbox" value="new"><span>New</span></label><label class="tg active"><input type="checkbox" value="active"><span>Active</span></label><label class="tg inactive"><input type="checkbox" value="inactive"><span>Inactive</span></label><label class="tg deleted"><input type="checkbox" value="deleted"><span>Deleted</span></label><label class="tg customer"><input type="checkbox" value="customer"><span>Customer</span></label><label class="tg na"><input type="checkbox" value="na"><span>FT/OOB/other</span></label></fieldset>
+        <div class="who">
+          <div class="nameline">
+            <button type="button" class="copy" id="copy-b59-22" aria-label="Copy Empire Southwest (Empire CAT)">Copy</button>
+            <a class="name" href="https://www.google.com/search?q=Empire+Southwest+%28Empire+CAT%29+1725+S.+Country+Club+Dr.%2C+Mesa%2C+AZ+85210" target="_blank" rel="noopener">Empire Southwest (Empire CAT)<span class="ext" aria-hidden="true">↗</span></a>
+          </div>
+          <div class="addr">1725 S. Country Club Dr., Mesa, AZ 85210</div>
+          <div class="phone"><span class="muted">No phone listed</span></div>
+        </div>
+        <div class="what">
+          <div class="modes"><span class="pill ftl">FTL</span><span class="equip">flatbed, step deck, RGN</span></div>
+          <p class="commodity">new, used and rental Cat machines, generators and parts moving between branches and to jobsites (Arizona)</p>
+          <p class="near"><span class="multi">2 projects within 100 mi</span> PHX01 campus (Prime Data Centers, Avondale, AZ) <b>~30 mi</b>; SunZia (HVDC) <b>~40 mi</b></p>
+        </div>
+      </li>
+      <li class="lead" data-lead="{&quot;n&quot;: &quot;Louisiana CAT&quot;, &quot;p&quot;: &quot;&quot;, &quot;a&quot;: &quot;10414 Airline Hwy., Baton Rouge, LA 70816&quot;, &quot;c&quot;: &quot;FTL (flatbed, step deck, RGN): new, used and rental Cat machines, generators and parts moving between branches and to jobsites (Louisiana)&quot;, &quot;u&quot;: &quot;https://www.google.com/search?q=Louisiana+CAT+10414+Airline+Hwy.%2C+Baton+Rouge%2C+LA+70816&quot;}" data-search="louisiana cat 10414 airline hwy., baton rouge, la 70816 ftl (flatbed, step deck, rgn): new, used and rental cat machines, generators and parts moving between branches and to jobsites (louisiana)" data-mode="ftl">
+        <fieldset class="tags" data-key="b59-louisiana-cat"><legend class="sr">Status of Louisiana CAT</legend><label class="tg new"><input type="checkbox" value="new"><span>New</span></label><label class="tg active"><input type="checkbox" value="active"><span>Active</span></label><label class="tg inactive"><input type="checkbox" value="inactive"><span>Inactive</span></label><label class="tg deleted"><input type="checkbox" value="deleted"><span>Deleted</span></label><label class="tg customer"><input type="checkbox" value="customer"><span>Customer</span></label><label class="tg na"><input type="checkbox" value="na"><span>FT/OOB/other</span></label></fieldset>
+        <div class="who">
+          <div class="nameline">
+            <button type="button" class="copy" id="copy-b59-23" aria-label="Copy Louisiana CAT">Copy</button>
+            <a class="name" href="https://www.google.com/search?q=Louisiana+CAT+10414+Airline+Hwy.%2C+Baton+Rouge%2C+LA+70816" target="_blank" rel="noopener">Louisiana CAT<span class="ext" aria-hidden="true">↗</span></a>
+          </div>
+          <div class="addr">10414 Airline Hwy., Baton Rouge, LA 70816</div>
+          <div class="phone"><span class="muted">No phone listed</span></div>
+        </div>
+        <div class="what">
+          <div class="modes"><span class="pill ftl">FTL</span><span class="equip">flatbed, step deck, RGN</span></div>
+          <p class="commodity">new, used and rental Cat machines, generators and parts moving between branches and to jobsites (Louisiana)</p>
+          <p class="near"><span class="lbl">Nearest</span> Delta Forge 1 (Applied Digital, Boyce, LA) <b>~120 mi</b>; Texas 765 kV backbone (ERCOT Permian plan) <b>~420 mi</b></p>
+        </div>
+      </li>
+      <li class="lead" data-lead="{&quot;n&quot;: &quot;Mustang CAT&quot;, &quot;p&quot;: &quot;&quot;, &quot;a&quot;: &quot;12800 Northwest Fwy., Houston, TX 77040&quot;, &quot;c&quot;: &quot;FTL (flatbed, step deck, RGN): new, used and rental Cat machines, generators and parts moving between branches and to jobsites (Southeast Texas)&quot;, &quot;u&quot;: &quot;https://www.google.com/search?q=Mustang+CAT+12800+Northwest+Fwy.%2C+Houston%2C+TX+77040&quot;}" data-search="mustang cat 12800 northwest fwy., houston, tx 77040 ftl (flatbed, step deck, rgn): new, used and rental cat machines, generators and parts moving between branches and to jobsites (southeast texas)" data-mode="ftl">
+        <fieldset class="tags" data-key="b59-mustang-cat"><legend class="sr">Status of Mustang CAT</legend><label class="tg new"><input type="checkbox" value="new"><span>New</span></label><label class="tg active"><input type="checkbox" value="active"><span>Active</span></label><label class="tg inactive"><input type="checkbox" value="inactive"><span>Inactive</span></label><label class="tg deleted"><input type="checkbox" value="deleted"><span>Deleted</span></label><label class="tg customer"><input type="checkbox" value="customer"><span>Customer</span></label><label class="tg na"><input type="checkbox" value="na"><span>FT/OOB/other</span></label></fieldset>
+        <div class="who">
+          <div class="nameline">
+            <button type="button" class="copy" id="copy-b59-24" aria-label="Copy Mustang CAT">Copy</button>
+            <a class="name" href="https://www.google.com/search?q=Mustang+CAT+12800+Northwest+Fwy.%2C+Houston%2C+TX+77040" target="_blank" rel="noopener">Mustang CAT<span class="ext" aria-hidden="true">↗</span></a>
+          </div>
+          <div class="addr">12800 Northwest Fwy., Houston, TX 77040</div>
+          <div class="phone"><span class="muted">No phone listed</span></div>
+        </div>
+        <div class="what">
+          <div class="modes"><span class="pill ftl">FTL</span><span class="equip">flatbed, step deck, RGN</span></div>
+          <p class="commodity">new, used and rental Cat machines, generators and parts moving between branches and to jobsites (Southeast Texas)</p>
+          <p class="near"><span class="lbl">Nearest</span> Arbok (Owner listed as an individual, Rockdale, TX) <b>~100 mi</b>; Texas 765 kV backbone, southern leg <b>~190 mi</b></p>
+        </div>
+      </li>
+      <li class="lead" data-lead="{&quot;n&quot;: &quot;Gregory Poole (Gregory Poole CAT)&quot;, &quot;p&quot;: &quot;&quot;, &quot;a&quot;: &quot;4807 Beryl Rd., Raleigh, NC 27606&quot;, &quot;c&quot;: &quot;FTL (flatbed, step deck, RGN): new, used and rental Cat machines, generators and parts moving between branches and to jobsites (eastern North Carolina)&quot;, &quot;u&quot;: &quot;https://www.google.com/search?q=Gregory+Poole+%28Gregory+Poole+CAT%29+4807+Beryl+Rd.%2C+Raleigh%2C+NC+27606&quot;}" data-search="gregory poole (gregory poole cat) 4807 beryl rd., raleigh, nc 27606 ftl (flatbed, step deck, rgn): new, used and rental cat machines, generators and parts moving between branches and to jobsites (eastern north carolina)" data-mode="ftl">
+        <fieldset class="tags" data-key="b59-gregory-poole-gregory-poole-cat"><legend class="sr">Status of Gregory Poole (Gregory Poole CAT)</legend><label class="tg new"><input type="checkbox" value="new"><span>New</span></label><label class="tg active"><input type="checkbox" value="active"><span>Active</span></label><label class="tg inactive"><input type="checkbox" value="inactive"><span>Inactive</span></label><label class="tg deleted"><input type="checkbox" value="deleted"><span>Deleted</span></label><label class="tg customer"><input type="checkbox" value="customer"><span>Customer</span></label><label class="tg na"><input type="checkbox" value="na"><span>FT/OOB/other</span></label></fieldset>
+        <div class="who">
+          <div class="nameline">
+            <button type="button" class="copy" id="copy-b59-25" aria-label="Copy Gregory Poole (Gregory Poole CAT)">Copy</button>
+            <a class="name" href="https://www.google.com/search?q=Gregory+Poole+%28Gregory+Poole+CAT%29+4807+Beryl+Rd.%2C+Raleigh%2C+NC+27606" target="_blank" rel="noopener">Gregory Poole (Gregory Poole CAT)<span class="ext" aria-hidden="true">↗</span></a>
+          </div>
+          <div class="addr">4807 Beryl Rd., Raleigh, NC 27606</div>
+          <div class="phone"><span class="muted">No phone listed</span></div>
+        </div>
+        <div class="what">
+          <div class="modes"><span class="pill ftl">FTL</span><span class="equip">flatbed, step deck, RGN</span></div>
+          <p class="commodity">new, used and rental Cat machines, generators and parts moving between branches and to jobsites (eastern North Carolina)</p>
+          <p class="near"><span class="lbl">Nearest</span> RCH-1 (Iron Mountain, Richmond, VA) <b>~140 mi</b>; PJM 765 kV (Valley Link and related) <b>~230 mi</b></p>
+        </div>
+      </li>
+    </ul>
+  </section>
+  <p class="empty" id="none" hidden>No leads match that filter.</p>
+  <p class="foot">Every copy is one row per company with four cells, left to right: company (a clickable link to its Google search), phone (left blank when there is none), address, commodity. "Copy batch" copies one row for each lead showing in that batch, with no header row, so it pastes straight under your existing columns.</p>
+</div>
+<div class="toast" id="toast" role="status" aria-live="polite" hidden></div>
+
+<script>
+(function () {
+  var toast = document.getElementById("toast"), tt;
+  function say(msg) { toast.textContent = msg; toast.hidden = false; clearTimeout(tt); tt = setTimeout(function () { toast.hidden = true; }, 1600); }
+
+  function copyEvent(text, html) {
+    var ok = false;
+    function onCopy(ev) { ev.preventDefault(); ev.clipboardData.setData("text/plain", text); if (html) ev.clipboardData.setData("text/html", html); ok = true; }
+    document.addEventListener("copy", onCopy);
+    try { document.execCommand("copy"); } catch (e) {}
+    document.removeEventListener("copy", onCopy);
+    return ok;
+  }
+  function textareaCopy(text) {
+    var ta = document.createElement("textarea");
+    ta.value = text; ta.setAttribute("readonly", ""); ta.style.position = "fixed"; ta.style.top = "0"; ta.style.left = "0"; ta.style.opacity = "0";
+    document.body.appendChild(ta); ta.focus(); ta.select();
+    var ok = false; try { ok = document.execCommand("copy"); } catch (e) {}
+    document.body.removeChild(ta);
+    return ok;
+  }
+  function copy(text, html, btn, label) {
+    function done() {
+      var old = btn.textContent; btn.textContent = "Copied"; btn.classList.add("copied");
+      setTimeout(function () { btn.textContent = old; btn.classList.remove("copied"); }, 1400);
+      say(label);
+    }
+    function fallback() {
+      if (copyEvent(text, html) || textareaCopy(text)) done();
+      else say("Copy was blocked. Select the text and copy it by hand.");
+    }
+    if (navigator.clipboard && navigator.clipboard.writeText) {
+      navigator.clipboard.writeText(text).then(done, fallback);
+    } else { fallback(); }
+  }
+  function cell(x) { return String(x || "").replace(/[\t\r\n]+/g, " ").trim(); }
+  function esc(s) { return s.replace(/&/g, "&amp;").replace(/</g, "&lt;").replace(/>/g, "&gt;").replace(/"/g, "&quot;"); }
+  function xq(x) { return '"' + x.replace(/"/g, '""') + '"'; }
+  function nameCell(d) {
+    var n = cell(d.n);
+    if (!d.u || d.u.length > 250) return n;
+    return "=HYPERLINK(" + xq(d.u) + "," + xq(n) + ")";
+  }
+  function asRow(d) { return [nameCell(d), cell(d.p), cell(d.a), cell(d.c)].join("\t"); }
+  function asTr(d) {
+    var n = esc(cell(d.n));
+    if (d.u) n = '<a href="' + esc(d.u) + '">' + n + "</a>";
+    return "<tr><td>" + n + "</td><td>" + esc(cell(d.p)) + "</td><td>" + esc(cell(d.a)) + "</td><td>" + esc(cell(d.c)) + "</td></tr>";
+  }
+  function asTable(trs) { return '<meta charset="utf-8"><table style="font-family:Aptos Narrow,Calibri,Arial,sans-serif;font-size:11pt">' + trs.join("") + "</table>"; }
+  document.querySelectorAll("button.copy").forEach(function (b) {
+    b.addEventListener("click", function () {
+      var d = JSON.parse(b.closest(".lead").dataset.lead);
+      copy(asRow(d), null, b, "Copied " + d.n);
+    });
+  });
+  document.querySelectorAll("button.copy-batch[data-batch]").forEach(function (b) {
+    b.addEventListener("click", function () {
+      var sec = document.getElementById("batch-" + b.dataset.batch);
+      var rows = [], trs = [];
+      sec.querySelectorAll(".lead:not([hidden])").forEach(function (li) {
+        var d = JSON.parse(li.dataset.lead); rows.push(asRow(d)); trs.push(asTr(d));
+      });
+      copy(rows.join("\r\n") + "\r\n", null, b, "Copied " + rows.length + " leads from Batch " + b.dataset.batch);
+    });
+  });
+
+  /* Prospect status: one per lead, shared through the page's database when available. */
+  var KINDS = ["new", "active", "inactive", "deleted", "customer", "na"];
+  var state = {}, col = null, shared = false, chains = {};
+  var sync = document.getElementById("sync");
+  function tallyInto(el, keys) {
+    var c = { new: 0, active: 0, inactive: 0, deleted: 0, customer: 0, na: 0 }, none = 0;
+    keys.forEach(function (k) { var l = state[k] || []; if (!l.length) none++; l.forEach(function (s) { if (c.hasOwnProperty(s)) c[s] += 1 / l.length; }); });
+    el.querySelectorAll("[data-k]").forEach(function (n) { n.textContent = n.dataset.k === "none" ? none : fmtN(c[n.dataset.k]); });
+  }
+  function norm(v) { var l = Array.isArray(v) ? v : (v ? [v] : []); return l.filter(function (x) { return KINDS.indexOf(x) !== -1; }); }
+  function fmtN(x) { return String(Math.round(x * 100) / 100); }
+  function render() {
+    document.querySelectorAll(".tags").forEach(function (fs) {
+      var l = state[fs.dataset.key] || [];
+      fs.querySelectorAll("input").forEach(function (i) { i.checked = l.indexOf(i.value) !== -1; });
+    });
+    var all = [];
+    document.querySelectorAll(".batch").forEach(function (sec) {
+      var keys = Array.prototype.map.call(sec.querySelectorAll(".tags"), function (fs) { return fs.dataset.key; });
+      all = all.concat(keys);
+      tallyInto(sec.querySelector(".tally"), keys);
+    });
+    tallyInto(document.getElementById("tally-all"), all);
+    var left = all.filter(function (k) { return !(state[k] && state[k].length); }).length;
+    document.querySelectorAll(".bulk button").forEach(function (b) { b.disabled = left > 0; });
+    document.getElementById("bulkhint").textContent = left > 0 ? "These unlock once every lead is marked (" + left + " left)." : "Every lead is marked. Each button copies one Excel row per lead.";
+  }
+  function saveLocal() { try { localStorage.setItem("leadstatus", JSON.stringify(state)); } catch (e) {} }
+  function write(key, s) {
+    if (!shared) { saveLocal(); return; }
+    var ref = col.doc(key);
+    chains[key] = (chains[key] || Promise.resolve()).then(function () {
+      return s.length ? ref.set({ s: s }) : ref.delete();
+    }).catch(function () { say("That checkmark didn't save. Check your connection and try again."); });
+  }
+  document.querySelectorAll(".bulk button").forEach(function (b) {
+    b.addEventListener("click", function () {
+      var kind = b.dataset.kind, rows = [];
+      document.querySelectorAll(".lead").forEach(function (li) {
+        var key = li.querySelector(".tags").dataset.key;
+        if ((state[key] || []).indexOf(kind) !== -1) rows.push(asRow(JSON.parse(li.dataset.lead)));
+      });
+      if (!rows.length) { say("No leads are marked " + (kind === "customer" ? "Customer" : "Deleted") + "."); return; }
+      copy(rows.join("\r\n") + "\r\n", null, b, "Copied " + rows.length + (kind === "customer" ? " customer" : " deleted") + (rows.length === 1 ? " lead" : " leads"));
+    });
+  });
+  document.querySelectorAll(".tags input").forEach(function (i) {
+    i.addEventListener("change", function () {
+      var key = i.closest(".tags").dataset.key;
+      var l = Array.prototype.filter.call(i.closest(".tags").querySelectorAll("input"), function (x) { return x.checked; }).map(function (x) { return x.value; });
+      if (l.length) state[key] = l; else delete state[key];
+      render(); write(key, l);
+    });
+  });
+  try { var raw = JSON.parse(localStorage.getItem("leadstatus") || "{}") || {}; state = {}; Object.keys(raw).forEach(function (k) { var l = norm(raw[k]); if (l.length) state[k] = l; }); } catch (e) { state = {}; }
+  render();
+  sync.textContent = "Checkmarks are saved in this browser only.";
+  if (window.claude && window.claude.use) {
+    window.claude.use("db").then(function (db) {
+      if (!db) return;
+      col = db.collection("leadstatus");
+      var timer = setTimeout(function () { sync.textContent = "Can't reach saved checkmarks yet. Showing what this browser last saw."; }, 10000);
+      col.onSnapshot(function (snap) {
+        if (!snap.metadata || !snap.metadata.fromCache) clearTimeout(timer);
+        shared = true;
+        var next = {};
+        snap.docs.forEach(function (d) { var v = d.data(); var l = norm(v && v.s); if (l.length) next[d.id] = l; });
+        state = next; render();
+        sync.textContent = "Checkmarks save automatically and show for anyone you share this page with.";
+      }, function () {
+        clearTimeout(timer); shared = false;
+        sync.textContent = "Saved checkmarks couldn't load, so changes are kept in this browser only.";
+      });
+    }, function () {});
+  }
+
+  var q = document.getElementById("q"), none = document.getElementById("none");
+  q.addEventListener("input", function () {
+    var t = q.value.trim().toLowerCase(), shown = 0;
+    document.querySelectorAll(".lead").forEach(function (li) {
+      var hit = !t || li.dataset.search.indexOf(t) !== -1; li.hidden = !hit; if (hit) shown++;
+    });
+    document.querySelectorAll(".batch").forEach(function (sec) {
+      sec.hidden = !sec.querySelector(".lead:not([hidden])");
+    });
+    none.hidden = shown > 0;
+  });
+})();
+</script>
+
+</body></html>
