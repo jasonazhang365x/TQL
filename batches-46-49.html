@@ -1616,7 +1616,7 @@ button.copied { background: var(--accent) !important; color: var(--accent-ink) !
   });
   try { var raw = JSON.parse(localStorage.getItem("leadstatus") || "{}") || {}; state = {}; Object.keys(raw).forEach(function (k) { var l = norm(raw[k]); if (l.length) state[k] = l; }); } catch (e) { state = {}; }
   render();
-  sync.textContent = "Checkmarks are saved in this browser only.";
+  sync.textContent = "Checkmarks save in this browser, and in every browser where Sync (bottom right) is on.";
   if (window.claude && window.claude.use) {
     window.claude.use("db").then(function (db) {
       if (!db) return;
@@ -1657,4 +1657,4 @@ button.copied { background: var(--accent) !important; color: var(--accent-ink) !
 <script id="dbjs">(function(){var K="sheetdb";function get(){try{return JSON.parse(localStorage.getItem(K)||"{}")||{}}catch(e){return{}}}
 function sync(){var s=get();document.querySelectorAll("input.dbchk").forEach(function(c){c.checked=!!s[c.dataset.b];c.parentNode.classList.toggle("on",c.checked)});var n=document.getElementById("dbcount");if(n){var t=document.querySelectorAll("input.dbchk"),k=0;t.forEach(function(c){if(c.checked)k++});n.textContent=k+" of "+t.length}}
 document.addEventListener("change",function(e){var c=e.target;if(!c.classList||!c.classList.contains("dbchk"))return;var s=get();if(c.checked)s[c.dataset.b]=Date.now();else delete s[c.dataset.b];try{localStorage.setItem(K,JSON.stringify(s))}catch(x){}sync()});
-sync();addEventListener("storage",sync);addEventListener("pageshow",sync);addEventListener("focus",sync)})();</script></body></html>
+sync();addEventListener("storage",sync);addEventListener("pageshow",sync);addEventListener("focus",sync)})();</script><script src="sync.js"></script></body></html>
