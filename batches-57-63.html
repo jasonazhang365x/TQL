@@ -1,6 +1,6 @@
 <!doctype html>
 <html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
-</head><body>
+<style id="dbcss">.dbbox{display:inline-flex;align-items:center;gap:6px;font:600 13px var(--body,system-ui);padding:3px 10px;border:1px solid color-mix(in srgb,#0093d0 45%,transparent);border-radius:99px;cursor:pointer;white-space:nowrap}.dbbox input{accent-color:#0093d0;width:16px;height:16px;margin:0}.dbbox.on{background:#0093d0;color:#fff;border-color:#0093d0}</style></head><body>
 <style>.topnav a{color:var(--accent)}</style><nav class="topnav" style="max-width:2040px;margin:12px auto 0;padding:0 16px;display:flex;flex-wrap:wrap;gap:18px;font:500 14px system-ui,sans-serif"><a href="index.html">All groups</a><a href="batches-64-70.html">Batches 64–70</a><a href="batches-50-56.html">Batches 50–56</a><a href="batches-46-49.html">Batches 46–49</a><a href="map.html">Map</a></nav>
 <title>Batches 57–63</title>
 <meta name="claude:viewport-fit-sides" content="cover">
@@ -143,7 +143,7 @@ button.copied { background: var(--accent) !important; color: var(--accent-ink) !
       </div>
       <div class="bmeta">
         <span class="status open">Open</span>
-        <span class="count">15 leads</span>
+        <span class="count">15 leads</span><label class="dbbox" title="Tick once this batch is copied into your database"><input type="checkbox" class="dbchk" data-b="63"><span>In my database</span></label>
         <button type="button" class="copy-batch" id="copybatch-63" data-batch="63">Copy batch</button>
       </div>
     </header>
@@ -401,7 +401,7 @@ button.copied { background: var(--accent) !important; color: var(--accent-ink) !
       </div>
       <div class="bmeta">
         <span class="status open">Open</span>
-        <span class="count">13 leads</span>
+        <span class="count">13 leads</span><label class="dbbox" title="Tick once this batch is copied into your database"><input type="checkbox" class="dbchk" data-b="62"><span>In my database</span></label>
         <button type="button" class="copy-batch" id="copybatch-62" data-batch="62">Copy batch</button>
       </div>
     </header>
@@ -627,7 +627,7 @@ button.copied { background: var(--accent) !important; color: var(--accent-ink) !
       </div>
       <div class="bmeta">
         <span class="status open">Open</span>
-        <span class="count">8 leads</span>
+        <span class="count">8 leads</span><label class="dbbox" title="Tick once this batch is copied into your database"><input type="checkbox" class="dbchk" data-b="61"><span>In my database</span></label>
         <button type="button" class="copy-batch" id="copybatch-61" data-batch="61">Copy batch</button>
       </div>
     </header>
@@ -773,7 +773,7 @@ button.copied { background: var(--accent) !important; color: var(--accent-ink) !
       </div>
       <div class="bmeta">
         <span class="status open">Open</span>
-        <span class="count">13 leads</span>
+        <span class="count">13 leads</span><label class="dbbox" title="Tick once this batch is copied into your database"><input type="checkbox" class="dbchk" data-b="60"><span>In my database</span></label>
         <button type="button" class="copy-batch" id="copybatch-60" data-batch="60">Copy batch</button>
       </div>
     </header>
@@ -999,7 +999,7 @@ button.copied { background: var(--accent) !important; color: var(--accent-ink) !
       </div>
       <div class="bmeta">
         <span class="status open">Open</span>
-        <span class="count">26 leads</span>
+        <span class="count">26 leads</span><label class="dbbox" title="Tick once this batch is copied into your database"><input type="checkbox" class="dbchk" data-b="59"><span>In my database</span></label>
         <button type="button" class="copy-batch" id="copybatch-59" data-batch="59">Copy batch</button>
       </div>
     </header>
@@ -1433,7 +1433,7 @@ button.copied { background: var(--accent) !important; color: var(--accent-ink) !
       </div>
       <div class="bmeta">
         <span class="status open">Open</span>
-        <span class="count">19 leads</span>
+        <span class="count">19 leads</span><label class="dbbox" title="Tick once this batch is copied into your database"><input type="checkbox" class="dbchk" data-b="58"><span>In my database</span></label>
         <button type="button" class="copy-batch" id="copybatch-58" data-batch="58">Copy batch</button>
       </div>
     </header>
@@ -1755,7 +1755,7 @@ button.copied { background: var(--accent) !important; color: var(--accent-ink) !
       </div>
       <div class="bmeta">
         <span class="status open">Open</span>
-        <span class="count">21 leads</span>
+        <span class="count">21 leads</span><label class="dbbox" title="Tick once this batch is copied into your database"><input type="checkbox" class="dbchk" data-b="57"><span>In my database</span></label>
         <button type="button" class="copy-batch" id="copybatch-57" data-batch="57">Copy batch</button>
       </div>
     </header>
@@ -2268,4 +2268,7 @@ button.copied { background: var(--accent) !important; color: var(--accent-ink) !
 })();
 </script>
 
-</body></html>
+<script id="dbjs">(function(){var K="batchdb";function get(){try{return JSON.parse(localStorage.getItem(K)||"{}")||{}}catch(e){return{}}}
+function sync(){var s=get();document.querySelectorAll("input.dbchk").forEach(function(c){c.checked=!!s[c.dataset.b];c.parentNode.classList.toggle("on",c.checked)});var n=document.getElementById("dbcount");if(n){var t=document.querySelectorAll("input.dbchk"),k=0;t.forEach(function(c){if(c.checked)k++});n.textContent=k+" of "+t.length}}
+document.addEventListener("change",function(e){var c=e.target;if(!c.classList||!c.classList.contains("dbchk"))return;var s=get();if(c.checked)s[c.dataset.b]=Date.now();else delete s[c.dataset.b];try{localStorage.setItem(K,JSON.stringify(s))}catch(x){}sync()});
+sync();addEventListener("storage",sync);addEventListener("pageshow",sync);addEventListener("focus",sync)})();</script></body></html>
