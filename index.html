@@ -10,11 +10,11 @@ var groups=[["Batches 57–63",57,63],["Batches 50–56",50,56],["Batches 46–4
 var labs=[["new","New"],["inactive","Inactive"],["deleted","Deleted"],["active","Active"],["customer","Customer"],["na","FT/OOB/other"]];
 function render(){
  var st={};try{st=JSON.parse(localStorage.getItem("leadstatus")||"{}")||{};}catch(e){}
- var rows=groups.map(function(g){var r={name:g[0],total:0,marked:0};labs.forEach(function(l){r[l[0]]=0});for(var b=g[1];b<=g[2];b++)r.total+=totals[b];
-  Object.keys(st).forEach(function(k){var m=/^b(\d+)-/.exec(k);if(!m)return;var b=+m[1];if(b<g[1]||b>g[2])return;var v=st[k];if(!Array.isArray(v))v=v?[v]:[];if(!v.length)return;r.marked++;v.forEach(function(x){if(x in r)r[x]++;});});return r;});
- var all={name:"All",total:0,marked:0};labs.forEach(function(l){all[l[0]]=0});rows.forEach(function(r){all.total+=r.total;all.marked+=r.marked;labs.forEach(function(l){all[l[0]]+=r[l[0]]})});
- var h="<table><tr><th></th>"+labs.map(function(l){return"<th>"+l[1]+"</th>"}).join("")+"<th>Unmarked</th><th>Leads</th></tr>";
- rows.concat([all]).forEach(function(r){h+="<tr"+(r===all?' class="tot"':"")+"><td>"+r.name+"</td>"+labs.map(function(l){return"<td>"+r[l[0]]+"</td>"}).join("")+"<td>"+Math.max(0,r.total-r.marked)+"</td><td>"+r.total+"</td></tr>";});
+ var rows=groups.map(function(g){var r={name:g[0],total:0,marked:0,star:0};labs.forEach(function(l){r[l[0]]=0});for(var b=g[1];b<=g[2];b++)r.total+=totals[b];
+  Object.keys(st).forEach(function(k){var m=/^b(\d+)-/.exec(k);if(!m)return;var b=+m[1];if(b<g[1]||b>g[2])return;var v=st[k];if(!Array.isArray(v))v=v?[v]:[];if(v.indexOf("star")!==-1)r.star++;v=v.filter(function(x){return x!=="star"});if(!v.length)return;r.marked++;v.forEach(function(x){if(x in r)r[x]++;});});return r;});
+ var all={name:"All",total:0,marked:0,star:0};labs.forEach(function(l){all[l[0]]=0});rows.forEach(function(r){all.total+=r.total;all.marked+=r.marked;all.star+=r.star;labs.forEach(function(l){all[l[0]]+=r[l[0]]})});
+ var h="<table><tr><th></th>"+labs.map(function(l){return"<th>"+l[1]+"</th>"}).join("")+"<th>Unmarked</th><th>*</th><th>Leads</th></tr>";
+ rows.concat([all]).forEach(function(r){h+="<tr"+(r===all?' class="tot"':"")+"><td>"+r.name+"</td>"+labs.map(function(l){return"<td>"+r[l[0]]+"</td>"}).join("")+"<td>"+Math.max(0,r.total-r.marked)+"</td><td>"+r.star+"</td><td>"+r.total+"</td></tr>";});
  document.getElementById("tallybody").innerHTML='<div style="overflow-x:auto">'+h+"</table></div>";
 }
 render();addEventListener("storage",render);addEventListener("focus",render);addEventListener("pageshow",render);
