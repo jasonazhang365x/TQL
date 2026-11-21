@@ -122,8 +122,8 @@ button.copied { background: var(--accent) !important; color: var(--accent-ink) !
     <p>115 FTL-leaning leads across Batches 57 to 63. Click a company name to search it with its address in a new tab. Copy puts company, phone, address and commodity in four side-by-side cells, ready to paste into Excel as plain text, with the company name as a clickable link to the same Google search.</p>
     <div class="allbox"><span class="seglbl">Batches 57 to 63 totals</span><div class="tally" id="tally-all"><span class="tc new"><i aria-hidden="true"></i>New <b data-k="new">0</b></span><span class="tc inactive"><i aria-hidden="true"></i>Inactive <b data-k="inactive">0</b></span><span class="tc deleted"><i aria-hidden="true"></i>Deleted <b data-k="deleted">0</b></span><span class="tc active"><i aria-hidden="true"></i>Active <b data-k="active">0</b></span><span class="tc customer"><i aria-hidden="true"></i>Customer <b data-k="customer">0</b></span><span class="tc na"><i aria-hidden="true"></i>FT/OOB/other <b data-k="na">0</b></span><span class="tc none">Unmarked <b data-k="none">0</b></span></div>
       <div class="bulk">
-        <button type="button" class="copy-batch" id="copy-customer" data-kind="customer" disabled>Copy all customers</button>
-        <button type="button" class="copy-batch" id="copy-deleted" data-kind="deleted" disabled>Copy all deleted</button>
+        <button type="button" class="copy-batch" id="copy-customer" data-kind="customer">Copy all customers</button>
+        <button type="button" class="copy-batch" id="copy-deleted" data-kind="deleted">Copy all deleted</button>
         <span class="bulkhint" id="bulkhint"></span>
       </div>
       <p class="sync" id="sync"></p></div>
@@ -2197,8 +2197,8 @@ button.copied { background: var(--accent) !important; color: var(--accent-ink) !
     });
     tallyInto(document.getElementById("tally-all"), all);
     var left = all.filter(function (k) { return !(state[k] && state[k].length); }).length;
-    document.querySelectorAll(".bulk button").forEach(function (b) { b.disabled = left > 0; });
-    document.getElementById("bulkhint").textContent = left > 0 ? "These unlock once every lead is marked (" + left + " left)." : "Every lead is marked. Each button copies one Excel row per lead.";
+    document.querySelectorAll(".bulk button").forEach(function (b) { b.disabled = false; });
+    document.getElementById("bulkhint").textContent = "Each button copies one Excel row per lead." + (left > 0 ? " " + left + " still unmarked." : "");
   }
   function saveLocal() { try { localStorage.setItem("leadstatus", JSON.stringify(state)); } catch (e) {} }
   function write(key, s) {
