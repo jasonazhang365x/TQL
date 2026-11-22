@@ -1,7 +1,7 @@
 /* Sync lead ticks across browsers through a private (secret) GitHub gist.
    The token is kept only in this browser's localStorage. */
 (function () {
-  var KEYS = ["leadstatus", "sheetdb"];
+  var KEYS = ["leadstatus", "sheetdb", "leadnotes"];
   var FILE = "tql-lead-ticks.json";
   var API = window.TQL_SYNC_API || "https://api.github.com";
   var T = "ghsync_token", G = "ghsync_gist", D = "ghsync_dirty", S = "ghsync_snap";

@@ -1,6 +1,6 @@
 <!doctype html>
 <html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
-<style id="phcss">.phone .pn{display:block}.phone .pl{font:500 11px var(--body,system-ui);color:var(--muted,#667);margin-left:6px}.phone .psrc{display:block;font:12px var(--body,system-ui);color:var(--muted,#667);margin-top:2px}.phone .psrc a{color:var(--accent,#0093d0)}</style><style id="dbcss">h1 .dbbox,h2 .dbbox{vertical-align:middle;margin-left:10px;font-size:14px;letter-spacing:0;text-transform:none}.dbbox{display:inline-flex;align-items:center;gap:6px;font:600 13px var(--body,system-ui);padding:3px 10px;border:1px solid color-mix(in srgb,#0093d0 45%,transparent);border-radius:99px;cursor:pointer;white-space:nowrap}.dbbox input{accent-color:#0093d0;width:16px;height:16px;margin:0}.dbbox.on{background:#0093d0;color:#fff;border-color:#0093d0}</style></head><body>
+<style id="phcss">.phone .pn{display:block}.phone .pl{font:500 11px var(--body,system-ui);color:var(--muted,#667);margin-left:6px}.phone .psrc{display:block;font:12px var(--body,system-ui);color:var(--muted,#667);margin-top:2px}.phone .psrc a{color:var(--accent,#0093d0)}</style><style id="dbcss">h1 .dbbox,h2 .dbbox{vertical-align:middle;margin-left:10px;font-size:14px;letter-spacing:0;text-transform:none}.dbbox{display:inline-flex;align-items:center;gap:6px;font:600 13px var(--body,system-ui);padding:3px 10px;border:1px solid color-mix(in srgb,#0093d0 45%,transparent);border-radius:99px;cursor:pointer;white-space:nowrap}.dbbox input{accent-color:#0093d0;width:16px;height:16px;margin:0}.dbbox.on{background:#0093d0;color:#fff;border-color:#0093d0}</style><style id="notecss">.lead .note{grid-column:1/-1;display:flex;flex-direction:column;gap:4px;margin-top:2px}.lead .note[hidden]{display:none}.lead .note label{font-size:12px;font-weight:600;color:var(--star,#c28a00)}.lead .note textarea{font:inherit;font-size:14px;line-height:1.4;width:100%;box-sizing:border-box;min-height:44px;resize:vertical;padding:7px 9px;border:1px solid color-mix(in srgb,#f59e0b 55%,transparent);border-radius:8px;background:color-mix(in srgb,#f59e0b 7%,Canvas);color:inherit}.lead .note .ns{font-size:11px;opacity:.6;min-height:1em}</style></head><body>
 <style>.topnav a{color:var(--accent)}</style><nav class="topnav" style="max-width:2040px;margin:12px auto 0;padding:0 16px;display:flex;flex-wrap:wrap;gap:18px;font:500 14px system-ui,sans-serif"><a href="index.html">All groups</a><a href="batches-71-77.html">Batches 71–77</a><a href="batches-64-70.html">Batches 64–70</a><a href="batches-57-63.html">Batches 57–63</a><a href="batches-50-56.html">Batches 50–56</a><a href="map.html">Map</a></nav>
 <title>Batches 46–49</title>
 <meta name="claude:viewport-fit-sides" content="cover">
@@ -1657,4 +1657,23 @@ button.copied { background: var(--accent) !important; color: var(--accent-ink) !
 <script src="sync.js"></script><script id="dbjs">(function(){var K="sheetdb";function get(){try{return JSON.parse(localStorage.getItem(K)||"{}")||{}}catch(e){return{}}}
 function sync(){var s=get();document.querySelectorAll("input.dbchk").forEach(function(c){c.checked=!!s[c.dataset.b];c.parentNode.classList.toggle("on",c.checked)});var n=document.getElementById("dbcount");if(n){var t=document.querySelectorAll("input.dbchk"),k=0;t.forEach(function(c){if(c.checked)k++});n.textContent=k+" of "+t.length}}
 document.addEventListener("change",function(e){var c=e.target;if(!c.classList||!c.classList.contains("dbchk"))return;var s=get();if(c.checked)s[c.dataset.b]=Date.now();else delete s[c.dataset.b];try{localStorage.setItem(K,JSON.stringify(s))}catch(x){}sync()});
-sync();addEventListener("storage",sync);addEventListener("pageshow",sync);addEventListener("focus",sync)})();</script></body></html>
+sync();addEventListener("storage",sync);addEventListener("pageshow",sync);addEventListener("focus",sync)})();</script>
+<script id="notejs">(function(){var K="leadnotes",notes={},col=null,timers={};
+function load(){try{notes=JSON.parse(localStorage.getItem(K)||"{}")||{}}catch(e){notes={}}}
+function save(){try{localStorage.setItem(K,JSON.stringify(notes))}catch(e){}}
+load();
+var boxes=[];
+document.querySelectorAll(".lead").forEach(function(li){var f=li.querySelector(".tags");if(!f)return;var key=f.dataset.key,star=f.querySelector('input[value="star"]');
+ var d=document.createElement("div");d.className="note";var id="note-"+key;
+ d.innerHTML='<label for="'+id+'">* Attention note</label><textarea id="'+id+'" rows="2" placeholder="Why does this lead need attention?"></textarea><span class="ns"></span>';
+ li.appendChild(d);var ta=d.querySelector("textarea"),ns=d.querySelector(".ns");
+ function vis(){d.hidden=!((star&&star.checked)||(notes[key]||"").trim())}
+ ta.addEventListener("input",function(){var v=ta.value;if(v.trim())notes[key]=v;else delete notes[key];ns.textContent="Saving…";clearTimeout(timers[key]);timers[key]=setTimeout(function(){if(col){(v.trim()?col.doc(key).set({t:v}):col.doc(key).delete()).then(function(){ns.textContent="Saved"},function(){ns.textContent="Not saved. Check your connection."})}else{save();ns.textContent="Saved"}},500)});
+ if(star)star.addEventListener("change",function(){vis();if(star.checked&&!ta.value)ta.focus()});
+ boxes.push({key:key,ta:ta,vis:vis});});
+function fill(){boxes.forEach(function(b){if(document.activeElement!==b.ta)b.ta.value=notes[b.key]||"";b.vis()})}
+fill();setInterval(function(){boxes.forEach(function(b){b.vis()})},1500);
+addEventListener("storage",function(e){if(e.key===K&&!col){load();fill()}});
+if(window.claude&&window.claude.use){window.claude.use("db").then(function(db){if(!db)return;var c=db.collection("leadnotes");c.onSnapshot(function(snap){col=c;var n={};snap.docs.forEach(function(d){var v=d.data();if(v&&v.t)n[d.id]=v.t});notes=n;fill()},function(){col=null})},function(){})}
+})();</script>
+</body></html>
